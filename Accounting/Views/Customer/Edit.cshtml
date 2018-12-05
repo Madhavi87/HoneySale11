@@ -1,0 +1,326 @@
+﻿@model HoneySaleDAL.CustomerDetail
+@{
+    ViewBag.Title = "Edit Customer";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+
+<script type="text/javascript">
+    var cylinderItems = [];
+
+    $(document).ready(function () {
+
+        $("#item_cylinder_Id").on('change', function () {
+            var t = $(this).val();
+            $("input[name = 'item.cylinderType']").val($("#item_cylinder_Id option:selected").text());
+
+        });
+
+        // (jQuery Data Table)
+        $('#tbl').dataTable({
+            "sDom": 'T<"clear">lfrtip',
+            "oTableTools": {
+                "aButtons": [],
+                "sRowSelect": "single"
+            },
+            "bLengthChange": false,
+            "bFilter": false,
+            "bSort": false,
+            "bInfo": false,
+            "bPaginate": false
+        });
+
+        var oTable;
+        oTable = $('#tbl').dataTable();
+        oTable.delegate(".remove", "click", function () {
+            var iPos = oTable.fnGetPosition($(this).parent().parent()[0]);
+            if (iPos !== null && iPos > 0) {
+                oTable.fnDeleteRow(iPos);//delete row
+            }
+
+        });
+
+        //Click on save button
+        $('#btnsave').click(function () {
+            if (oTable.fnGetData().length > 1) {
+
+                var data = {
+                    cust_id: $('#cust_id').val(),
+                    companyName: $('#companyName').val().trim(),
+                    address: $('#address').val().trim(),
+                    contact_Num_1: $('#contact_Num_1').val().trim(),
+                    contact_Num_2: $('#contact_Num_2').val().trim(),
+                    email: $('#email').val().trim(),
+                    discount: $('#discount').val().trim(),
+                    openingBalance: $('#openingBalance').val(),
+                    balanceAmount: $('#balanceAmount').val(),
+                    gst: $('#gst').val().trim(),
+                    CustomerCylinderDetailForEdit: cylinderItems
+                }
+
+                $.ajax({
+                    url: '@Url.Action("Edit", "Customer")',
+                        type: "POST",
+                        data: JSON.stringify(data),
+                        dataType: "JSON",
+                        contentType: "application/json",
+                        success: function (d) { 
+                             if (d.status == true) {
+                                $.notify(d.Message, "success");
+
+                                var url = '@Url.Action("Listing", "Customer")';
+                                window.location.href = url;
+                            }
+                            else {
+                                 $.notify(d.Message, "error");
+                                 e.preventDefault();
+                                return false;
+
+                            }
+
+                        },
+                        error: function () {
+                            $.notify( "Error. Please try again.","error");
+                            e.preventDefault();
+                            return false;
+                        } 
+                    });
+               }
+               else {
+                   alert("At least add one record");
+                   return false;
+               }
+            });
+    });
+
+       function Add() {
+           if ($('#item_cylinder_Id').val() == "") {
+               alert("Please select the cylinder Type");
+               $('#item_cylinder_Id').focus();
+               return false;
+           }
+           else if ($('#item_totalCylinder').val() == "") {
+               alert("Please enter no. of cylinders");
+               $('#item_totalCylinder').focus();
+               return false;
+           }
+           else {
+               // Adding item to table
+               if ($('#item_cylinder_Id').val() != "" || $('#item_totalCylinder').val() != "") {
+
+                   $('#tbl').dataTable().fnAddData([$('#item_cylinderType').val(),$('#item_openingCylinder').val(), $('#item_totalCylinder').val(), $('#item_discount').val(), '<a href="#" class="remove">Remove</a>']);
+                   cylinderItems.push({
+                       cylinder_Id: $('#item_cylinder_Id').val().trim(),
+                       cylinderType: $('#item_cylinderType').val().trim(),
+                       openingCylinder: parseInt($('#item_openingCylinder').val().trim()),
+                       totalCylinder: parseInt($('#item_totalCylinder').val().trim()),
+                       discount: $('#item_discount').val().trim()
+                   });
+                   // Making Editable text empty
+                   $('#item_cylinder_Id').val("")
+                   $('#item_totalCylinder').val("0")
+                   $('#item_discount').val("")
+                   $('#item_openingCylinder').val("")
+
+               }
+           }
+       }
+</script>
+
+<section class="content-header">
+    <h1 class="headingfont">Customer Details</h1>
+
+</section>
+@if (ViewBag.SuccessMsg != null)
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.notify("@ViewBag.SuccessMsg", "success");
+        });
+    </script>
+}
+
+<section class="content">
+    @*@using (Html.BeginForm())
+    {*@
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div id="alert" style="color: red; display: none; margin-left: 10px;">*Please fill mandatory fields</div>
+        <fieldset>
+
+            <div class="row no-margin">
+
+                <div class="col-md-3">
+                    <label class="required headinglabel">Company Name</label>
+                    @Html.TextBoxFor(model => model.companyName, new { @class = "form-control txttarget" })
+                    @Html.HiddenFor(model => model.cust_id)
+                    @Html.ValidationMessageFor(model => model.companyName)
+
+                </div>
+                <div class="col-md-3">
+                    <label class="required headinglabel">Address</label>
+                    @Html.TextBoxFor(model => model.address, new { @class = "form-control txttarget" })
+                    @Html.ValidationMessageFor(model => model.address)
+
+                </div>
+                <div class="col-md-3">
+                    <label class="required headinglabel">Primary Contact </label>
+                    @Html.TextBoxFor(model => model.contact_Num_1, new { @class = "form-control txttarget" })
+                    @Html.ValidationMessageFor(model => model.contact_Num_1)
+
+                </div>
+
+                <div class="col-md-3">
+                    <label class=" headinglabel">Secondary Contact</label>
+                    @Html.TextBoxFor(model => model.contact_Num_2, new { @class = "form-control" })
+                </div>
+
+
+            </div>
+            <div class="row no-margin">
+
+                <div class="col-md-3">
+                    <label class=" headinglabel">Email</label>
+                    @Html.TextBoxFor(model => model.email, new { @class = "form-control" })
+                </div>
+                <div class="col-md-3">
+                    <label class="headinglabel">Deposit</label>
+                    @Html.TextBoxFor(model => model.discount, new { @class = "form-control" })
+                </div>
+                <div class="col-md-3">
+                    <label class=" headinglabel">  Balance Amount</label>
+                    @Html.TextBoxFor(model => model.openingBalance, new { @class = "form-control" })
+
+                </div>
+                <div class="col-md-3">
+                    <label class=" headinglabel">Balance Limit</label>
+                    @Html.TextBoxFor(model => model.balanceAmount, new { @class = "form-control" })
+
+                </div>
+
+            </div>
+            <div class="row no-margin">
+                <div class="col-md-3">
+                    <label class="headinglabel">GST</label>
+                    @Html.TextBoxFor(model => model.gst, new { @class = "form-control" })
+                </div>
+
+            </div>
+            <div class="row no-margin" style="padding-top: 10px"></div>
+            <div class="table-responsive tblbackground">
+                <table class="table table-responsive table-bordered tblfont" id="tbl">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.Label("Cylinder Type")
+                            </th>
+                             <th>
+                                @Html.Label("Opening Cylinder")
+                            </th>
+                            <th>
+                                @Html.Label("No of Cylinder")
+                            </th>
+                            <th>
+                                @Html.Label("Discount")
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @if (@Model != null)
+                        {
+                            foreach (var item in @Model.CustomerCylinderDetailForEdit)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @Html.DropDownListFor(modelItem => item.cylinder_Id, new SelectList(Model.cylinders, "ID", "cylinderType"), "-select-", new { @class = "form-control" })
+                                        @Html.HiddenFor(modelItem => item.cylinderType)
+                                    </td>
+                                     <td>
+                                      @Html.TextBoxFor(modelItem => item.openingCylinder, new { @class = "form-control" })
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(modelItem => item.totalCylinder, new { @class = "form-control" })
+                                    </td>            
+                                    <td>
+                                        @Html.TextBoxFor(modelItem => item.discount, new { @class = "form-control" })
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                            }
+                        }
+
+                        @if (@Model != null)
+                        {
+                            foreach (var item in @Model.CustomerCylinderDetail)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.cylinderType)
+                                    </td>
+                                     <td>
+                                         @Html.DisplayFor(modelItem => item.openingCylinder)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.totalCylinder)
+                                    </td>                                   
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.discount)
+                                    </td>
+                                    <td>
+                                        <a href="#" onclick="Delete(ID=@item.ID)" class="remove">Remove</a>
+                                    </td>
+                                </tr>
+
+                            }
+                        }
+
+
+                    </tbody>
+
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">
+                                <input class="btnAdd btn btn-default" type="button" name="name" value="Add" onclick="javascript: Add()" />
+                            </td>
+
+                        </tr>
+                    </tfoot>
+                </table>
+
+            </div>
+
+            <div class="row no-margin" style="padding-top: 10px">
+                <div class="col-md-12">
+
+                    <input type="button" value="Save" class="btn btn-primary btnwidth" id="btnsave" />
+
+                    &nbsp;
+                    <a href='@Url.Action("Listing", "Customer")' class="btn btn-primary btnwidth" data-toggle="tooltip" data-placement="right" title="Click here">Cancel</a>
+
+                </div>
+            </div>
+
+
+        </fieldset>
+    @*}*@
+</section>
+<script type="text/javascript">
+    function Delete(ID) {
+        if (confirm("Are you sure, You want to Delete Record?")) {
+            $.post("@Url.Action("DeleteDetail", "Customer")?val=" + ID, function (res) {
+                if (res.Success === "true") {
+
+                    $('#tbl').dataTable().fnDraw();
+
+                } else {
+                    alert("Error getting data!");
+                }
+            });
+        }
+    }
+</script>

@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="honeysaleModelStoreContainer" CdmEntityContainer="honeysaleEntities">
+    <EntitySetMapping Name="CustomerDetails">
+      <EntityTypeMapping TypeName="honeysaleModel.CustomerDetail">
+        <MappingFragment StoreEntitySet="CustomerDetail">
+          <ScalarProperty Name="balanceAmount" ColumnName="balanceAmount" />
+          <ScalarProperty Name="openingBalance" ColumnName="openingBalance" />
+          <ScalarProperty Name="companyName" ColumnName="companyName" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="contact_Num_1" ColumnName="contact_Num_1" />
+          <ScalarProperty Name="contact_Num_2" ColumnName="contact_Num_2" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="gst" ColumnName="gst" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CylinderMasters">
+      <EntityTypeMapping TypeName="honeysaleModel.CylinderMaster">
+        <MappingFragment StoreEntitySet="CylinderMaster">
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="openingReplace" ColumnName="openingReplace" />
+          <ScalarProperty Name="openingEmpty" ColumnName="openingEmpty" />
+          <ScalarProperty Name="openingFilled" ColumnName="openingFilled" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="cylinderType" ColumnName="cylinderType" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoadCylinders">
+      <EntityTypeMapping TypeName="honeysaleModel.LoadCylinder">
+        <MappingFragment StoreEntitySet="LoadCylinder">
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="loadDate" ColumnName="loadDate" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="createdOn" ColumnName="createdOn" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReturnCylinders">
+      <EntityTypeMapping TypeName="honeysaleModel.ReturnCylinder">
+        <MappingFragment StoreEntitySet="ReturnCylinder">
+          <ScalarProperty Name="ERVNo" ColumnName="ERVNo" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="dealerName" ColumnName="dealerName" />
+          <ScalarProperty Name="emptyCylinder" ColumnName="emptyCylinder" />
+          <ScalarProperty Name="returnDate" ColumnName="returnDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblroles">
+      <EntityTypeMapping TypeName="honeysaleModel.tblrole">
+        <MappingFragment StoreEntitySet="tblrole">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="roleid" ColumnName="roleid" />
+          <ScalarProperty Name="rolename" ColumnName="rolename" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UnloadCylinders">
+      <EntityTypeMapping TypeName="honeysaleModel.UnloadCylinder">
+        <MappingFragment StoreEntitySet="UnloadCylinder">
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmptyCylinder" ColumnName="EmptyCylinder" />
+          <ScalarProperty Name="UnloadDate" ColumnName="UnloadDate" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="createdOn" ColumnName="createdOn" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_AddCustomer" FunctionName="honeysaleModel.Store.sp_AddCustomer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="honeysaleModel.sp_AddCustomer_Result">
+          <ScalarProperty Name="custid" ColumnName="custid" />
+          <ScalarProperty Name="crnno" ColumnName="crnno" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="email_id" ColumnName="email_id" />
+          <ScalarProperty Name="contact" ColumnName="contact" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="aadharno" ColumnName="aadharno" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="updateddate" ColumnName="updateddate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="userLogin" FunctionName="honeysaleModel.Store.userLogin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="honeysaleModel.userLogin_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="username" ColumnName="username" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="userLogin1" FunctionName="honeysaleModel.Store.userLogin1" />
+    <EntitySetMapping Name="tblusers">
+      <EntityTypeMapping TypeName="honeysaleModel.tbluser">
+        <MappingFragment StoreEntitySet="tbluser">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="salt" ColumnName="salt" />
+          <ScalarProperty Name="passwordHash" ColumnName="passwordHash" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseDetails">
+      <EntityTypeMapping TypeName="honeysaleModel.PurchaseDetail">
+        <MappingFragment StoreEntitySet="PurchaseDetail">
+          <ScalarProperty Name="FilledCylinder" ColumnName="FilledCylinder" />
+          <ScalarProperty Name="purchase_Id" ColumnName="purchase_Id" />
+          <ScalarProperty Name="cylinder_Id" ColumnName="cylinder_Id" />
+          <ScalarProperty Name="cylinderType" ColumnName="cylinderType" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoadDetails">
+      <EntityTypeMapping TypeName="honeysaleModel.LoadDetail">
+        <MappingFragment StoreEntitySet="LoadDetail">
+          <ScalarProperty Name="FilledCylinder" ColumnName="FilledCylinder" />
+          <ScalarProperty Name="load_Id" ColumnName="load_Id" />
+          <ScalarProperty Name="cylinder_Id" ColumnName="cylinder_Id" />
+          <ScalarProperty Name="cylinderType" ColumnName="cylinderType" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReturnDetails">
+      <EntityTypeMapping TypeName="honeysaleModel.ReturnDetail">
+        <MappingFragment StoreEntitySet="ReturnDetail">
+          <ScalarProperty Name="RejectedCylinder" ColumnName="RejectedCylinder" />
+          <ScalarProperty Name="EmptyCylinder" ColumnName="EmptyCylinder" />
+          <ScalarProperty Name="FilledCylinder" ColumnName="FilledCylinder" />
+          <ScalarProperty Name="return_Id" ColumnName="return_Id" />
+          <ScalarProperty Name="cylinder_Id" ColumnName="cylinder_Id" />
+          <ScalarProperty Name="cylinderType" ColumnName="cylinderType" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UnloadDetails">
+      <EntityTypeMapping TypeName="honeysaleModel.UnloadDetail">
+        <MappingFragment StoreEntitySet="UnloadDetail">
+          <ScalarProperty Name="RejectedCylinder" ColumnName="RejectedCylinder" />
+          <ScalarProperty Name="FilledCylinder" ColumnName="FilledCylinder" />
+          <ScalarProperty Name="EmptyCylinder" ColumnName="EmptyCylinder" />
+          <ScalarProperty Name="unload_Id" ColumnName="unload_Id" />
+          <ScalarProperty Name="cylinder_Id" ColumnName="cylinder_Id" />
+          <ScalarProperty Name="cylinderType" ColumnName="cylinderType" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseCylinders">
+      <EntityTypeMapping TypeName="honeysaleModel.PurchaseCylinder">
+        <MappingFragment StoreEntitySet="PurchaseCylinder">
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="purchaseDate" ColumnName="purchaseDate" />
+          <ScalarProperty Name="BillNo" ColumnName="BillNo" />
+          <ScalarProperty Name="dealerName" ColumnName="dealerName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LiveCylinderDetails">
+      <EntityTypeMapping TypeName="honeysaleModel.LiveCylinderDetail">
+        <MappingFragment StoreEntitySet="LiveCylinderDetail">
+          <ScalarProperty Name="ReplacementCylinderCount" ColumnName="ReplacementCylinderCount" />
+          <ScalarProperty Name="EmptyCylinderCount" ColumnName="EmptyCylinderCount" />
+          <ScalarProperty Name="FilledCylinderCount" ColumnName="FilledCylinderCount" />
+          <ScalarProperty Name="cylinder_Id" ColumnName="cylinder_Id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerCylinderDetails">
+      <EntityTypeMapping TypeName="honeysaleModel.CustomerCylinderDetail">
+        <MappingFragment StoreEntitySet="CustomerCylinderDetail">
+          <ScalarProperty Name="cylinder_Id" ColumnName="cylinder_Id" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+          <ScalarProperty Name="totalCylinder" ColumnName="totalCylinder" />
+          <ScalarProperty Name="cylinderType" ColumnName="cylinderType" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerPaymentDetails">
+      <EntityTypeMapping TypeName="honeysaleModel.CustomerPaymentDetail">
+        <MappingFragment StoreEntitySet="CustomerPaymentDetails">
+          <ScalarProperty Name="signature" ColumnName="signature" />
+          <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+          <ScalarProperty Name="remark" ColumnName="remark" />
+          <ScalarProperty Name="received" ColumnName="received" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="PaidAmount" ColumnName="PaidAmount" />
+          <ScalarProperty Name="balanceAmount" ColumnName="balanceAmount" />
+          <ScalarProperty Name="cust_Id" ColumnName="cust_Id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryDetails">
+      <EntityTypeMapping TypeName="honeysaleModel.DeliveryDetail">
+        <MappingFragment StoreEntitySet="DeliveryDetail">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="sgst" ColumnName="sgst" />
+          <ScalarProperty Name="cgst" ColumnName="cgst" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="signature" ColumnName="signature" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="Custsignature" ColumnName="Custsignature" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="cylinder_Id" ColumnName="cylinder_Id" />
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+          <ScalarProperty Name="balanceAmount" ColumnName="balanceAmount" />
+          <ScalarProperty Name="paidAmount" ColumnName="paidAmount" />
+          <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+          <ScalarProperty Name="emptyCylinder" ColumnName="emptyCylinder" />
+          <ScalarProperty Name="filledCylinder" ColumnName="filledCylinder" />
+          <ScalarProperty Name="cylinderAmount" ColumnName="cylinderAmount" />
+          <ScalarProperty Name="voucherNo" ColumnName="voucherNo" />
+          <ScalarProperty Name="C_deliveryDate" ColumnName=" deliveryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StaffPayments">
+      <EntityTypeMapping TypeName="honeysaleModel.StaffPayment">
+        <MappingFragment StoreEntitySet="StaffPayment">
+          <ScalarProperty Name="Received_By" ColumnName="Received_By" />
+          <ScalarProperty Name="Received_On" ColumnName="Received_On" />
+          <ScalarProperty Name="Return_Date" ColumnName="Return_Date" />
+          <ScalarProperty Name="Return_Amount" ColumnName="Return_Amount" />
+          <ScalarProperty Name="Balance_Amount" ColumnName="Balance_Amount" />
+          <ScalarProperty Name="Staff__ID" ColumnName="Staff _ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

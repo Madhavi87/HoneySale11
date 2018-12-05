@@ -1,0 +1,43 @@
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\AccountingDAL\bin\Debug\HoneySaleDAL.dll.config
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\AccountingDAL\bin\Debug\HoneySaleDAL.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\AccountingDAL\bin\Debug\HoneySaleDAL.pdb
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\AccountingDAL\bin\Debug\EntityFramework.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\AccountingDAL\bin\Debug\EntityFramework.xml
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\AccountingDAL\obj\Debug\HoneySaleDAL.csproj.CoreCompileInputs.cache
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\AccountingDAL\obj\Debug\HoneySaleDAL.csproj.CopyComplete
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\AccountingDAL\obj\Debug\HoneySaleDAL.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\AccountingDAL\obj\Debug\HoneySaleDAL.pdb
+D:\Chetan_.Netprjts\HoneySale\AccountingDAL\bin\Debug\EntityFramework.dll
+D:\Chetan_.Netprjts\HoneySale\AccountingDAL\bin\Debug\EntityFramework.xml
+D:\Chetan_.Netprjts\HoneySale\AccountingDAL\obj\Debug\HoneySaleDAL.dll
+D:\Chetan_.Netprjts\HoneySale\AccountingDAL\obj\Debug\HoneySaleDAL.pdb
+D:\Chetan_.Netprjts\HoneySale\AccountingDAL\bin\Debug\HoneySaleDAL.dll.config
+D:\Chetan_.Netprjts\HoneySale\AccountingDAL\bin\Debug\HoneySaleDAL.dll
+D:\Chetan_.Netprjts\HoneySale\AccountingDAL\bin\Debug\HoneySaleDAL.pdb
+D:\Chetan_.Netprjts\HoneySale\AccountingDAL\obj\Debug\HoneySaleDAL.csprojResolveAssemblyReference.cache
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\AccountingDAL\bin\Debug\HoneySaleDAL.dll.config
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\AccountingDAL\bin\Debug\HoneySaleDAL.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\AccountingDAL\bin\Debug\HoneySaleDAL.pdb
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\AccountingDAL\bin\Debug\EntityFramework.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\AccountingDAL\bin\Debug\EntityFramework.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\AccountingDAL\obj\Debug\HoneySaleDAL.csproj.CoreCompileInputs.cache
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\AccountingDAL\obj\Debug\HoneySaleDAL.csproj.CopyComplete
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\AccountingDAL\obj\Debug\HoneySaleDAL.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\AccountingDAL\obj\Debug\HoneySaleDAL.pdb
+D:\infogalaxy_prjts\HoneySale\AccountingDAL\bin\Debug\EntityFramework.dll
+D:\infogalaxy_prjts\HoneySale\AccountingDAL\bin\Debug\EntityFramework.xml
+D:\infogalaxy_prjts\HoneySale\AccountingDAL\obj\Debug\HoneySaleDAL.dll
+D:\infogalaxy_prjts\HoneySale\AccountingDAL\obj\Debug\HoneySaleDAL.pdb
+D:\infogalaxy_prjts\HoneySale\AccountingDAL\bin\Debug\HoneySaleDAL.dll.config
+D:\infogalaxy_prjts\HoneySale\AccountingDAL\bin\Debug\HoneySaleDAL.dll
+D:\infogalaxy_prjts\HoneySale\AccountingDAL\bin\Debug\HoneySaleDAL.pdb
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\AccountingDAL\bin\Debug\HoneySaleDAL.dll.config
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\AccountingDAL\bin\Debug\HoneySaleDAL.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\AccountingDAL\bin\Debug\HoneySaleDAL.pdb
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\AccountingDAL\bin\Debug\EntityFramework.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\AccountingDAL\bin\Debug\EntityFramework.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\AccountingDAL\obj\Debug\HoneySaleDAL.csproj.CoreCompileInputs.cache
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\AccountingDAL\obj\Debug\HoneySaleDAL.csproj.CopyComplete
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\AccountingDAL\obj\Debug\HoneySaleDAL.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\AccountingDAL\obj\Debug\HoneySaleDAL.pdb
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\AccountingDAL\obj\Debug\HoneySaleDAL.csprojAssemblyReference.cache

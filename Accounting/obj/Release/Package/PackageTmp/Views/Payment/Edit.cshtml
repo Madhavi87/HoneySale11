@@ -1,0 +1,78 @@
+﻿@model HoneySaleDAL.StaffPayment
+@{
+    ViewBag.Title = "Staff Payment";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+
+<script type="text/javascript">
+    var cylinderItems = [];
+
+    $(document).ready(function () {
+        $('#Return_Date').datepicker({
+            dateFormat: 'dd-M-yy',
+            changeYear: true, changeMonth: true, changeDate: true
+        });
+    })
+
+ </script>
+
+<section class="content-header">
+    <h1 class="headingfont">Staff Payment Details</h1>
+
+</section>
+@if (ViewBag.SuccessMsg != null)
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.notify("@ViewBag.SuccessMsg", "success");
+        });
+    </script>
+}
+
+<section class="content">
+    @using (Html.BeginForm())
+        {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div id="alert" style="color: red; display: none; margin-left: 10px;">*Please fill mandatory fields</div>
+    <fieldset>
+
+        <div class="row no-margin">
+            <div class="col-md-3">
+                <label class="required headinglabel">Staff Name</label>
+                    @Html.DropDownListFor(model => model.Staff__ID, new SelectList(Model.staff, "ID", "username"), "-select-", new { @class = "form-control" })
+             </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Balance Amount</label>
+                @Html.TextBoxFor(model => model.Balance_Amount, new { @class = "form-control" })
+
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Return Amount </label>
+                @Html.TextBoxFor(model => model.Return_Amount, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row no-margin" style="padding-top: 10px"></div>
+       <div class="row no-margin">
+            <div class="col-md-3">
+                <label class="headinglabel">Return Date</label>
+                @Html.TextBoxFor(model => model.Return_Date, new { @class = "form-control" }) 
+            </div>
+            
+        </div>
+        <div class="row no-margin" style="padding-top: 10px">
+            <div class="col-md-12">
+
+                    <input type="submit" value="Save" class="btn btn-primary btnwidth" id="btnsave" />
+
+                &nbsp;
+                <a href='@Url.Action("Listing", "Payment")' class="btn btn-primary btnwidth" data-toggle="tooltip" data-placement="right" title="Click here">Cancel</a>
+
+            </div>
+        </div>
+
+
+    </fieldset>
+    }
+</section>

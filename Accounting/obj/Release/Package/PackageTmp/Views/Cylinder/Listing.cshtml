@@ -1,0 +1,178 @@
+﻿@model IEnumerable<HoneySaleDAL.CylinderMaster>
+@{
+    ViewBag.Title = "Cylinder Listing";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+<style>
+    tfoot {
+        display: table-header-group;
+    }
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+
+        $('#dataTables-example tfoot th').each(function () {
+            var title = $(this).text();
+            $(this).html('<input type="text" />');
+        });
+
+
+        var table = $('#dataTables-example').DataTable({ "sPaginationType": "full_numbers" });
+
+        table.columns().every(function () {
+            var that = this;
+
+            $('input', this.footer()).on('keyup change', function () {
+                if (that.search() !== this.value) {
+                    that
+                        .search(this.value)
+                        .draw();
+                }
+            });
+        });
+
+
+    });
+
+
+</script>
+
+
+<section class="content-header">
+    <h1 class="headingfont">Cylinder Detail</h1>
+
+</section>
+<p class="indexbtnpadding">
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary btnwidth" })
+</p>
+<section class="content">
+    @if (ViewBag.SuccessMsg != null)
+    {
+        <script type="text/javascript">
+         $(document).ready(function () {
+             $.notify("@ViewBag.SuccessMsg ", "success");
+         });
+        </script>
+    }
+    <div class="table-responsive tblbackground" style="padding:15px">
+        <table class="table table-responsive table-bordered tblfont" id="dataTables-example">
+            <thead>
+                <tr>
+
+                    <th rowspan="2">
+                        @Html.Label("Cylinder Type")
+                    </th>
+                    <th rowspan="2">
+                        @Html.Label("Amount")
+                    </th>
+                    <th colspan="3"> @Html.Label("Opening Cylinder")</th>
+                    <th colspan="2">@Html.Label("Created")</th>
+                    <th colspan="2">@Html.Label("Modified")</th>
+                    <th rowspan="2">Action</th>
+                </tr>
+                <tr>
+
+                    <th>
+                        @Html.Label("Filled")
+                    </th>
+                    <th>
+                        @Html.Label("Empty")
+                    </th>
+                    <th> @Html.Label("Replace")</th>
+                    <th> @Html.Label("On")</th>
+                    <th> @Html.Label("by")</th>
+                    <th> @Html.Label("On")</th>
+                    <th> @Html.Label("by")</th>
+                </tr>
+
+            </thead>
+
+            <tfoot>
+                <tr>
+
+                    <th rowspan="2">
+                        @Html.Label("Cylinder Type")
+                    </th>
+                    <th rowspan="2">
+                        @Html.Label("Amount")
+                    </th>
+
+                </tr>
+
+            </tfoot>
+
+
+            <tbody>
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td class="tdtarget">
+                                @Html.DisplayFor(modelItem => item.cylinderType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.amount.Value)
+                            </td>
+                            <td class="tdtarget">
+                                @if (item.openingFilled.HasValue)
+                                {
+                               
+                                    @Html.DisplayFor(modelItem => item.openingFilled.Value)
+                                }
+                            </td>
+                            <td>
+                                @if (item.openingEmpty.HasValue)
+                                {
+                               
+                                    @Html.DisplayFor(modelItem => item.openingEmpty.Value)}
+                            </td>
+                            <td>
+                                @if (item.openingReplace.HasValue)
+                                {
+                                
+                                    @Html.DisplayFor(modelItem => item.openingReplace.Value)
+                                }
+                            </td>
+                            <td>
+                                @*@Html.DisplayFor(modelItem => item.CreatedOn)*@
+                                <span> @HoneySale.Models.CommonFunction.GetShortDayFormat(item.CreatedOn)</span>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedBy)
+                            </td>
+                            <td>
+                                @*@Html.DisplayFor(modelItem => item.ModifiedOn)*@
+                                <span> @HoneySale.Models.CommonFunction.GetShortDayFormat(item.ModifiedOn)</span>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ModifiedBy)
+                            </td>
+                            <td>
+
+                                <a href="@Url.Action("Edit", new { id = item.ID })"><i class="fa fa-pencil"></i></a> |
+
+                                <a href="#" onclick="Delete(ID=@item.ID)"><i class="fa fa-times"></i></a>
+
+                            </td>
+                        </tr>
+                    }
+                }
+                <//tbody>
+        </table>
+    </div>
+</section>
+
+
+<script type="text/javascript">
+    function Delete(ID) {
+        if (confirm("Are you sure, You want to Delete Record?")) {
+            window.location.href = "/Cylinder/DeleteConfirmed/?id=" + ID;
+        }
+    }
+</script>

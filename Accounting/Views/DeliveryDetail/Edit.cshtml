@@ -1,0 +1,238 @@
+﻿@model HoneySaleDAL.DeliveryDetail
+@{
+    ViewBag.Title = "Edit delivery detail";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        if ($("#cust_id option:selected").text() == "-select-") {
+            var markup = "<option value='0'>--Select--</option>";
+            var t = @Html.Raw(Json.Encode(Model.ID))
+            $("#cylinder_Id").html(markup).show();
+        }
+      
+       
+        $("#cylinder_Id").on('change', function () {
+            var t = $(this).val();
+            if (t !== "") {
+                $.post("@Url.Action("GetAmount", "DeliveryDetail")?val=" + t, function (res) {
+                     if (res.Success === "true") {
+
+                         //enable the text boxes and set the value
+
+                         $("input[name = 'cylinderAmount']").val(res.Data.amount);
+                         var filledCylinder = parseFloat($("[id*=filledCylinder]").val());
+                         var cylinderAmount = parseFloat($("[id*=cylinderAmount]").val());
+                         if ($("[id*=filledCylinder]").val() == "") {
+                             $("[id*=filledCylinder]").val("0");
+                             var filledCylinder = parseFloat($("[id*=filledCylinder]").val("0"));
+                         }
+                         var total = parseFloat(filledCylinder * cylinderAmount);
+                         $("[id*=totalAmount]").val(total);
+                         if ($("[id*=totalAmount]").val() != "" && $("[id*=paidAmount]").val() != "") {
+                             var totalAmount = parseFloat($("[id*=totalAmount]").val());
+                             var paidAmount = parseFloat($("[id*=paidAmount]").val());
+                             var balancedAmount = parseFloat(totalAmount - paidAmount);
+                             $("[id*=balanceAmount]").val(balancedAmount);
+
+                         }
+                         else { $("[id*=balanceAmount]").val(total); }
+
+                     } else {
+                         alert("Error getting data!");
+                     }
+                 });
+             }
+        });
+
+        $("#cust_id").on('change', function () {
+            var t = $(this).val();
+            if ($("#cust_id option:selected").text() == "-select-") {
+                var markup = "<option value='0'>--Select--</option>";
+                var t = @Html.Raw(Json.Encode(Model.ID))
+            $("#cylinder_Id").html(markup).show();
+            } else {
+                $.ajax({
+                    url: '@Url.Action("GetCylinder", "DeliveryDetail")',
+                    data: JSON.stringify({ cust_id: t }),
+                    dataType: "json",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        var markup = "<option value='0'>--Select--</option>";
+                        for (var x = 0; x < data.length; x++) {
+                            markup += "<option value=" + data[x].Value + ">" + data[x].Text + "</option>";
+                        }
+                        $("#cylinder_Id").html(markup).show();
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    }
+
+                });
+            }
+        });
+
+        $('#C_deliveryDate').datepicker({
+            dateFormat: 'dd-M-yy',
+            changeYear: true, changeMonth: true,
+        });
+
+        $("#filledCylinder").keyup(function () {
+            if ($("[id*=filledCylinder]").val() == "") {
+                $("[id*=filledCylinder]").val("0");
+            }
+            else if ($("[id*=cylinderAmount]").val() == "") {
+                $("[id*=cylinderAmount]").val("0");
+            }
+            else if ($("[id*=filledCylinder]").val() != "") {
+                var filledCylinder = parseFloat($("[id*=filledCylinder]").val());
+                var cylinderAmount = parseFloat($("[id*=cylinderAmount]").val());
+            }
+            else {
+                $("[id*=filledCylinder]").val("0");
+                $("[id*=cylinderAmount]").val("0");
+            }
+            var total = parseFloat(filledCylinder * cylinderAmount);
+
+            $("[id*=totalAmount]").val(total);
+            $("[id*=balanceAmount]").val(total);
+
+        });
+        //To calculate Balanced amount
+        $("#paidAmount").keyup(function () {
+            if ($("[id*=totalAmount]").val() != "" && $("[id*=paidAmount]").val() != "") {
+                var totalAmount = parseFloat($("[id*=totalAmount]").val());
+                var paidAmount = parseFloat($("[id*=paidAmount]").val());
+                var balancedAmount = parseFloat(totalAmount - paidAmount);
+                $("[id*=balanceAmount]").val(balancedAmount);
+
+            }
+        });
+    });
+
+
+</script>
+
+
+
+
+
+<section class="content-header">
+    <h1 class="headingfont">Delivery Details</h1>
+
+</section>
+@if (ViewBag.SuccessMsg != null)
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.notify("@ViewBag.SuccessMsg", "success");
+
+
+        });
+
+
+    </script>
+}
+
+<section class="content">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div id="alert" style="color: red; display: none; margin-left: 10px;">*Please fill mandatory fields</div>
+        <fieldset>
+
+            <div class="row no-margin">
+                <div class="col-md-3">
+                    <label class="required headinglabel">Voucher No. </label>
+                    @Html.TextBoxFor(model => model.voucherNo, new { @class = "form-control txttarget" })
+                    @Html.ValidationMessageFor(model => model.voucherNo)
+
+                </div>
+                <div class="col-md-3">
+                    <label class="required headinglabel">Customer </label>
+                    @Html.DropDownListFor(model => model.cust_id,new SelectList(Model.customers,"cust_id","companyName"),"-select-", new { @class = "form-control txttarget" })
+                    @Html.ValidationMessageFor(model => model.cust_id)
+
+                </div>
+                <div class="col-md-3">
+                    <label class="required headinglabel">Delivery Date</label>
+                    @Html.TextBoxFor(model => model.C_deliveryDate, new { @class = "form-control txttarget", @autocomplete = "off" })
+                    @Html.ValidationMessageFor(model => model.C_deliveryDate)
+
+                </div>
+                 <div class="col-md-3">
+                        <label class="required headinglabel">User </label>
+                         @Html.DropDownListFor(model => model.userid, new SelectList(Model.users, "ID", "username"), "", new { @class = "form-control txttarget" })
+                         @Html.HiddenFor(model => model.username)
+                         @Html.ValidationMessageFor(model => model.userid)
+
+                </div>
+                </div>
+                <div class="row no-margin" style="padding-top: 10px">
+                 <div class="col-md-3">
+                    <label class="headinglabel">Cylinder Type</label>
+                   @Html.DropDownListFor(model => model.cylinder_Id,new SelectList(Model.cylinders,"ID","cylinderType"),new { @class = "form-control" })
+
+                 </div>
+                 <div class="col-md-3">
+                    <label class="headinglabel">Cylinder Amount</label>
+                    @Html.TextBoxFor(model => model.cylinderAmount,new { @class = "form-control" });
+                 </div>
+                <div class="col-md-3">
+                    <label class="headinglabel">Empty Cylinders</label>
+                    @Html.TextBoxFor(model => model.emptyCylinder, new { @class = "form-control" })
+                 </div>
+                 <div class="col-md-3">
+                    <label class="headinglabel">Filled Cylinders</label>
+                    @Html.TextBoxFor(model => model.filledCylinder, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row no-margin">
+                  
+                <div class="col-md-3">
+                    <label class="headinglabel">Replace Cylinders</label>
+                    @Html.TextBoxFor(model => model.replacementCylinder, new { @class = "form-control" })
+                </div>
+                 <div class="col-md-3">
+                    <label class="headinglabel">Total Amount</label>
+                    @Html.TextBoxFor(model => model.totalAmount,new { @class = "form-control" })
+               
+                 </div>
+                <div class="col-md-3">
+                    <label class="headinglabel">Paid Amount</label>
+                    @Html.TextBoxFor(model => model.paidAmount, new { @class = "form-control" })
+                 </div>        
+                
+
+            </div>
+            <div class="row no-margin" style="padding-top: 10px">
+                <div class="col-md-3">
+                    <label class="headinglabel">Balanced Amount</label>
+                    @Html.TextBoxFor(model => model.balanceAmount, new { @class = "form-control" })
+                </div>
+
+            </div>
+            <div class="row no-margin" style="padding-top: 10px">
+                <div class="col-md-12">
+
+                    <input type="submit" value="Save" class="btn btn-primary btnwidth" id="btnsave" />
+
+                    &nbsp; 
+                  <a href='@Url.Action("Listing", "DeliveryDetail", new { id = 0 })' class="btn btn-primary btnwidth" data-toggle="tooltip" data-placement="right" title="Click here">Cancel</a>
+
+                </div>
+            </div>
+
+
+        </fieldset>
+    }
+</section>

@@ -1,0 +1,370 @@
+﻿@model HoneySaleDAL.ReturnCylinder
+@{
+    ViewBag.Title = "Return Cylinder";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+
+<script type="text/javascript">
+       var cylinderItems = [];
+
+       $(document).ready(function () {
+           $('#tblOther').hide();
+           $('#tbl').hide();
+           $("#item_cylinder_Id").on('change', function () {
+               var t = $(this).val();
+               $("input[name = 'item.cylinderType']").val($("#item_cylinder_Id option:selected").text());
+
+           });
+
+           $("#item1_cylinder_Id").on('change', function () {
+               var t = $(this).val();
+               $("input[name = 'item1.cylinderType']").val($("#item1_cylinder_Id option:selected").text());
+
+           });
+
+           // (jQuery Data Table)
+           $('#tbl').dataTable({
+               "sDom": 'T<"clear">lfrtip',
+               "oTableTools": {
+                   "aButtons": [],
+                   "sRowSelect": "single"
+               },
+               "bLengthChange": false,
+               "bFilter": false,
+               "bSort": false,
+               "bInfo": false,
+               "bPaginate": false
+           });
+
+           // (jQuery Data Table)
+           $('#tblOther').dataTable({
+               "sDom": 'T<"clear">lfrtip',
+               "oTableTools": {
+                   "aButtons": [],
+                   "sRowSelect": "single"
+               },
+               "bLengthChange": false,
+               "bFilter": false,
+               "bSort": false,
+               "bInfo": false,
+               "bPaginate": false
+           });
+
+           var oTable;
+
+            $("#del").hide();
+           $("#dealer").on('change', function () {
+               var t = $(this).val();
+
+               if (t == "1") {
+                   oTable = $('#tbl').dataTable();
+                   $('#tblOther').hide();
+                   $('#tbl').show();
+                   var d = $("#dealer option:selected").text();
+                   $("#dealerName").val(d);
+                   $("#del").hide();
+               }
+               else if (t == "2") {
+                   oTable = $('#tblOther').dataTable();
+                   $('#tblOther').show();
+                   $('#tbl').hide();
+                   $("#dealerName").val("");
+                   $("#del").show();
+               }
+               else {
+                    oTable = "";
+                    $("#dealerName").val("");
+                    $("#del").hide();
+                    $('#tblOther').hide();
+                    $('#tbl').hide();
+               }
+
+           });
+           if (oTable != undefined) {
+               oTable.delegate(".remove", "click", function () {
+                   var iPos = oTable.fnGetPosition($(this).parent().parent()[0]);
+                   if (iPos !== null && iPos > 0) {
+                       oTable.fnDeleteRow(iPos);//delete row
+                   }
+               });
+           }
+           $('#returnDate').datepicker({
+               dateFormat: 'dd-M-yy',
+               changeYear: true, changeMonth: true,
+           });
+
+
+           //Click on save button
+           $('#btnsave').click(function () {
+               if (oTable.fnGetData().length > 1) {
+
+                   var data = {
+                       dealerName: $('#dealerName').val().trim(),
+                       ERVNo: $('#ERVNo').val().trim(),
+                       returnDate: $('#returnDate').val().trim(),
+                       ReturnDetail: cylinderItems
+                   }
+
+                   $.ajax({
+                       url: '@Url.Action("Create", "Return")',
+                       type: "POST",
+                       data: JSON.stringify(data),
+                       dataType: "JSON",
+                       contentType: "application/json",
+                       success: function (d) {
+
+                           if (d.status == true) {
+                                $.notify(d.Message, "success");
+
+                                var url = '@Url.Action("Listing", "Return")';
+                                window.location.href = url;
+                            }
+                            else {
+                                $.notify(d.Message, "error");
+                                return false;
+
+                            }
+
+                        },
+                        error: function () {
+                            $.notify( "Error. Please try again.","error");
+
+                            return false;
+                        }
+                   });
+               }
+               else {
+                   alert("At least add one record");
+                   return false;
+               }
+            });
+       });
+
+       function Add() {
+           if ($('#dealerName').val() == "Bharat Gas" && $('#item1_cylinder_Id').val() == "") {
+               alert("Please select the cylinder Type");
+               $('#item1_cylinder_Id').focus();
+               return false;
+           }
+           else if ($('#dealerName').val() != "Bharat Gas" && $('#item_cylinder_Id').val() == "") {
+               alert("Please select the cylinder Type");
+               $('#item_cylinder_Id').focus();
+               return false;
+           }
+           else if ($('#dealerName').val() != "Bharat Gas" && $('#item_FilledCylinder').val() == "") {
+               alert("Please enter no. of cylinder");
+               return false;
+           }
+           else if ($('#dealerName').val() == "Bharat Gas" && ($('#item1_EmptyCylinder').val() == "" || $('#item1_RejectedCylinder').val() == "")) {
+               alert("Please enter no. of cylinder");
+               return false;
+           }
+           else {
+               // Adding item to table
+               if ($('#dealerName').val() != "Bharat Gas" && $('#item_cylinder_Id').val() != "") {
+                   if ($('#item_FilledCylinder').val() != "") {
+
+                       $('#tblOther').dataTable().fnAddData([$('#item_cylinderType').val(), $('#item_FilledCylinder').val(),'<a href="#" class="remove">Remove</a>']);
+                       cylinderItems.push({
+                           cylinder_Id: $('#item_cylinder_Id').val().trim(),
+                           cylinderType: $('#item_cylinderType').val().trim(),
+                           FilledCylinder: parseInt($('#item_FilledCylinder').val().trim()),
+                           EmptyCylinder: parseInt("0"),
+                           RejectedCylinder: parseInt("0")
+                       });
+                   }
+                   $('#item_cylinder_Id').val("")
+                   $('#item_FilledCylinder').val("")
+               }
+
+               if ($('#dealerName').val() == "Bharat Gas" && $('#item1_cylinder_Id').val() != "") {
+
+                   if ($('#item1_EmptyCylinder').val() != "" || $('#item1_RejectedCylinder').val() !="") {
+
+                   $('#tbl').dataTable().fnAddData([$('#item1_cylinderType').val(), $('#item1_EmptyCylinder').val(), $('#item1_RejectedCylinder').val(),'<a href="#" class="remove">Remove</a>']);
+                   cylinderItems.push({
+                       cylinder_Id: $('#item1_cylinder_Id').val().trim(),
+                       cylinderType: $('#item1_cylinderType').val().trim(),
+                       FilledCylinder: parseInt("0"),
+                       EmptyCylinder: parseInt($('#item1_EmptyCylinder').val().trim()),
+                       RejectedCylinder: parseInt($('#item1_RejectedCylinder').val().trim())
+                   });
+                   }
+
+                   // Making Editable text empty
+                   $('#item1_cylinder_Id').val("")
+                   $('#item1_RejectedCylinder').val("")
+                   $('#item1_EmptyCylinder').val("")
+               }
+
+
+           }
+       }
+</script>
+
+<section class="content-header">
+    <h1 class="headingfont">Return Cylinder Details</h1>
+
+</section>
+@if (ViewBag.SuccessMsg != null)
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.notify("@ViewBag.SuccessMsg", "success");
+        });
+    </script>
+}
+
+<section class="content">
+    @*@using (Html.BeginForm())
+        {*@
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div id="alert" style="color: red; display: none; margin-left: 10px;">*Please fill mandatory fields</div>
+    <fieldset>
+
+        <div class="row no-margin">
+            <div class="col-md-3">
+                <label class="required headinglabel">Dealer Name</label>
+                @Html.DropDownList("dealer",new List<SelectListItem>
+                 {
+                 new SelectListItem{ Text="Bharat Gas", Value = "1" },
+                 new SelectListItem{ Text="Other", Value = "2" }
+                 }, "- Select -", new { @class = "form-control txttarget" })
+
+                <div id="del"> @Html.TextBoxFor(model => model.dealerName, new { @class = "form-control" }) </div>
+                @Html.ValidationMessageFor(model => model.dealerName)
+            </div>
+            <div class="col-md-3">
+                <label class="required headinglabel">ERV No.</label>
+                @Html.TextBoxFor(model => model.ERVNo, new { @class = "form-control" })
+
+            </div>
+            <div class="col-md-3">
+                <label class="required headinglabel">Return Date </label>
+                @Html.TextBoxFor(model => model.returnDate, new { @class = "form-control txttarget", @autocomplete = "off" })
+                @Html.ValidationMessageFor(model => model.returnDate)
+
+            </div>
+        </div>
+        <div class="row no-margin" style="padding-top: 10px"></div>
+        <div class="table-responsive tblbackground">
+            <table class="table table-responsive table-bordered tblfont" id="tblOther">
+                <thead>
+                    <tr>
+                        <th style="width:170px">
+                            @Html.Label("Cylinder Type")
+                        </th>
+
+                        <th style="width:170px">
+                            @Html.Label("No of Filled Cylinder")
+                        </th>
+
+                        <th style="width:120px"></th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @if (@Model != null)
+                    {
+                        foreach (var item in @Model.ReturnDetail)
+                        {
+                            <tr>
+                                <td style="width:154px">
+                                    @Html.DropDownListFor(modelItem => item.cylinder_Id, new SelectList(Model.cylinders, "ID", "cylinderType"), "-select-", new { @class = "form-control" })
+                                    @Html.HiddenFor(modelItem => item.cylinderType)
+                                </td>
+                                <td style="width:154px">
+                                    @Html.TextBoxFor(modelItem => item.FilledCylinder, new { @class = "form-control" })
+                                </td>
+                                <td style="width:154px"></td>
+                            </tr>
+
+                        }
+                    }
+
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td colspan="3">
+                            <input class="btnAdd btn btn-default" type="button" name="name" value="Add" onclick="javascript: Add()" />
+                        </td>
+
+                    </tr>
+                </tfoot>
+            </table>
+
+            <table class="table table-responsive table-bordered tblfont" id="tbl">
+                <thead>
+                    <tr>
+                        <th style="width:170px">
+                            @Html.Label("Cylinder Type")
+                        </th>
+
+                        <th class="bharat" style="width:170px">
+                            @Html.Label("No of Empty Cylinder")
+                        </th>
+                        <th class="bharat" style="width:170px">
+                            @Html.Label("No of Rejected Cylinder")
+                        </th>
+
+                        <th style="width:120px"></th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @if (@Model != null)
+                    {
+                        foreach (var item1 in @Model.ReturnDetail)
+                        {
+                            <tr>
+                                <td style="width:154px">
+                                    @Html.DropDownListFor(modelItem => item1.cylinder_Id, new SelectList(Model.cylinders, "ID", "cylinderType"), "-select-", new { @class = "form-control" })
+                                    @Html.HiddenFor(modelItem => item1.cylinderType)
+                                </td>
+
+                                <td style="width:154px">
+                                    @Html.TextBoxFor(modelItem => item1.EmptyCylinder, new { @class = "form-control" })
+                                </td>
+                                <td style="width:154px">
+                                    @Html.TextBoxFor(modelItem => item1.RejectedCylinder, new { @class = "form-control" })
+                                </td>
+                                <td></td>
+                            </tr>
+
+
+                        }
+                    }
+
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td colspan="4">
+                            <input class="btnAdd btn btn-default" type="button" name="name" value="Add" onclick="javascript: Add()" />
+                        </td>
+
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+        <div class="row no-margin" style="padding-top: 10px">
+            <div class="col-md-12">
+
+                <input type="button" value="Save" class="btn btn-primary btnwidth" id="btnsave" />
+
+                &nbsp;
+                <a href='@Url.Action("Listing", "Return")' class="btn btn-primary btnwidth" data-toggle="tooltip" data-placement="right" title="Click here">Cancel</a>
+
+            </div>
+        </div>
+
+
+    </fieldset>
+    @*}*@
+</section>

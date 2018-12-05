@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f39146ccdb6747afbbe40baf97ad2dee" Name="Diagram1">
+        <EntityTypeShape EntityType="honeysaleModel.CustomerDetail" Width="1.5" PointX="5.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="honeysaleModel.CylinderMaster" Width="1.5" PointX="5.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="honeysaleModel.LoadCylinder" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="honeysaleModel.ReturnCylinder" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="honeysaleModel.tblrole" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="honeysaleModel.UnloadCylinder" Width="1.5" PointX="3.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="honeysaleModel.tbluser" Width="1.5" PointX="0.75" PointY="4.625" />
+        <AssociationConnector Association="honeysaleModel.FK_LoadCylinder" />
+        <AssociationConnector Association="honeysaleModel.FK_Unloads" />
+        <EntityTypeShape EntityType="honeysaleModel.PurchaseDetail" Width="1.5" PointX="6.8290316494316947" PointY="15.536364279471508" />
+        <AssociationConnector Association="honeysaleModel.FK_CylinderID" />
+        <EntityTypeShape EntityType="honeysaleModel.LoadDetail" Width="1.5" PointX="7.0890993508925195" PointY="9.0770720136710779" />
+        <EntityTypeShape EntityType="honeysaleModel.ReturnDetail" Width="1.5" PointX="3.7980609237207386" PointY="21.357804904392829" />
+        <EntityTypeShape EntityType="honeysaleModel.UnloadDetail" Width="1.5" PointX="2.0453451788264072" PointY="3.1354002818164415" />
+        <AssociationConnector Association="honeysaleModel.FK_CylinderReturnDetail" />
+        <AssociationConnector Association="honeysaleModel.FK_LoadDetailCylinder" />
+        <AssociationConnector Association="honeysaleModel.FK_UnloadDetailCylinder" />
+        <AssociationConnector Association="honeysaleModel.FK_loadDetail" />
+        <AssociationConnector Association="honeysaleModel.FK_ReturnDetail" />
+        <AssociationConnector Association="honeysaleModel.FK_UnnloadDetial" />
+        <EntityTypeShape EntityType="honeysaleModel.PurchaseCylinder" Width="1.5" PointX="9.8257811655410467" PointY="26.520464626383252" />
+        <AssociationConnector Association="honeysaleModel.FK_Purchase" />
+        <EntityTypeShape EntityType="honeysaleModel.LiveCylinderDetail" Width="1.5" PointX="0.63064146443765678" PointY="28.084681285584661" />
+        <EntityTypeShape EntityType="honeysaleModel.CustomerCylinderDetail" Width="1.5" PointX="4.30053756213772" PointY="13.849851629626869" />
+        <AssociationConnector Association="honeysaleModel.FK_CustomerCylinder" />
+        <AssociationConnector Association="honeysaleModel.FK_CustCylinderDetail" />
+        <EntityTypeShape EntityType="honeysaleModel.CustomerPaymentDetail" Width="1.5" PointX="8" PointY="18.75" />
+        <EntityTypeShape EntityType="honeysaleModel.DeliveryDetail" Width="1.5" PointX="8" PointY="0.75" />
+        <AssociationConnector Association="honeysaleModel.FK_Customer" />
+        <AssociationConnector Association="honeysaleModel.FK_PaymentCust_ID" />
+        <AssociationConnector Association="honeysaleModel.FK_Cylinder" />
+        <AssociationConnector Association="honeysaleModel.FK_DeliveryDetail_tbluser" />
+        <EntityTypeShape EntityType="honeysaleModel.StaffPayment" Width="1.5" PointX="4.6515474713647489" PointY="26.705678773441203" />
+        <AssociationConnector Association="honeysaleModel.FK_Staff_ID" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

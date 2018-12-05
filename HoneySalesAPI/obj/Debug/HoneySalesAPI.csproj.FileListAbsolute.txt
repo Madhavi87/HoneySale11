@@ -1,0 +1,151 @@
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\obj\Debug\HoneySalesAPI.csproj.CoreCompileInputs.cache
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\HoneySalesAPI.dll.config
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\HoneySalesAPI.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\HoneySalesAPI.pdb
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\Antlr3.Runtime.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\EntityFramework.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\HoneySaleDAL.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\Microsoft.Web.Infrastructure.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\Newtonsoft.Json.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\Num2Wrd.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Net.Http.Formatting.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Helpers.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Http.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Http.WebHost.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Mvc.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Optimization.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Providers.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Razor.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.Deployment.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.Razor.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\WebGrease.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\HoneySaleDAL.pdb
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\HoneySaleDAL.dll.config
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\EntityFramework.xml
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\Newtonsoft.Json.xml
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Net.Http.Formatting.xml
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Helpers.xml
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Http.xml
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Http.WebHost.xml
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Mvc.xml
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Razor.xml
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.xml
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.Deployment.xml
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.Razor.xml
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\obj\Debug\HoneySalesAPI.csprojAssemblyReference.cache
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\obj\Debug\HoneySalesAPI.csproj.CopyComplete
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\obj\Debug\HoneySalesAPI.dll
+C:\Projects\HoneySales\Admin\8 Sep 2018\HoneySale\HoneySale\HoneySalesAPI\obj\Debug\HoneySalesAPI.pdb
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\HoneySalesAPI.dll
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\HoneySalesAPI.pdb
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\Antlr3.Runtime.dll
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\EntityFramework.dll
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\HoneySaleDAL.dll
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\Microsoft.Web.Infrastructure.dll
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\Newtonsoft.Json.dll
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\System.Net.Http.Formatting.dll
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\System.Web.Helpers.dll
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\System.Web.Http.dll
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\System.Web.Http.WebHost.dll
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\System.Web.Mvc.dll
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\System.Web.Optimization.dll
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\System.Web.Providers.dll
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\System.Web.Razor.dll
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.Deployment.dll
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.dll
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.Razor.dll
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\WebGrease.dll
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\HoneySaleDAL.pdb
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\EntityFramework.xml
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\Newtonsoft.Json.xml
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\System.Net.Http.Formatting.xml
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\System.Web.Helpers.xml
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\System.Web.Http.xml
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\System.Web.Http.WebHost.xml
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\System.Web.Mvc.xml
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\System.Web.Razor.xml
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.xml
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.Deployment.xml
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.Razor.xml
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\obj\Debug\HoneySalesAPI.csprojResolveAssemblyReference.cache
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\obj\Debug\HoneySalesAPI.dll
+D:\Chetan_.Netprjts\HoneySale\HoneySalesAPI\obj\Debug\HoneySalesAPI.pdb
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\HoneySalesAPI.dll.config
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\HoneySalesAPI.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\HoneySalesAPI.pdb
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\Antlr3.Runtime.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\EntityFramework.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\HoneySaleDAL.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\Microsoft.Web.Infrastructure.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\Newtonsoft.Json.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\Num2Wrd.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\System.Net.Http.Formatting.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\System.Web.Helpers.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\System.Web.Http.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\System.Web.Http.WebHost.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\System.Web.Mvc.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\System.Web.Optimization.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\System.Web.Providers.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\System.Web.Razor.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.Deployment.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.Razor.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\WebGrease.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\HoneySaleDAL.pdb
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\HoneySaleDAL.dll.config
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\EntityFramework.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\Newtonsoft.Json.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\System.Net.Http.Formatting.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\System.Web.Helpers.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\System.Web.Http.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\System.Web.Http.WebHost.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\System.Web.Mvc.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\System.Web.Razor.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.Deployment.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.Razor.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\obj\Debug\HoneySalesAPI.csprojAssemblyReference.cache
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\obj\Debug\HoneySalesAPI.csproj.CoreCompileInputs.cache
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\obj\Debug\HoneySalesAPI.csproj.CopyComplete
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\obj\Debug\HoneySalesAPI.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\HoneySalesAPI\obj\Debug\HoneySalesAPI.pdb
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\HoneySalesAPI.dll.config
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\HoneySalesAPI.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\HoneySalesAPI.pdb
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\Antlr3.Runtime.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\EntityFramework.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\HoneySaleDAL.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\Microsoft.Web.Infrastructure.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\Newtonsoft.Json.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\Num2Wrd.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Net.Http.Formatting.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Helpers.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Http.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Http.WebHost.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Mvc.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Optimization.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Providers.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Razor.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.Deployment.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.Razor.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\WebGrease.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\HoneySaleDAL.pdb
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\HoneySaleDAL.dll.config
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\EntityFramework.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\Newtonsoft.Json.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Net.Http.Formatting.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Helpers.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Http.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Http.WebHost.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Mvc.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.Razor.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.Deployment.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\bin\System.Web.WebPages.Razor.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\obj\Debug\HoneySalesAPI.csprojAssemblyReference.cache
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\obj\Debug\HoneySalesAPI.csproj.CoreCompileInputs.cache
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\obj\Debug\HoneySalesAPI.csproj.CopyComplete
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\obj\Debug\HoneySalesAPI.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\HoneySalesAPI\obj\Debug\HoneySalesAPI.pdb

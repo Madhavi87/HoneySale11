@@ -1,0 +1,508 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+          name='viewport'>
+
+    @*      @Scripts.Render("~/NewDesignFiles/jquery.min.js")*@
+
+    @*<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">*@
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    @*
+        <link rel="stylesheet" href="/resources/demos/style.css">*@
+
+
+    @*    @Styles.Render("~/content/css/bootstrap-inputs.css")
+        @Styles.Render("~/content/css/skins/_all-skins.min.css")*@
+    <!-- JS SCRIPTS -->
+    <script src="~/Content/NewCSS/plugins/jQuery/jQuery-2.2.0.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script src="~/Content/jquery-ui.js"></script>
+    <script src="~/Content/NewCSS/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/NewCSS/js/app.min.js"></script>
+    <script src="~/Content/jquery.dataTables.min.js"></script>
+
+
+    <script src="~/Scripts/notify.js"></script>
+    <script src="~/Scripts/notify.min.js"></script>
+    <!-- css files -->
+    <link rel="stylesheet" href="~/Content/NewCSS/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/NewCSS/css/style.css">
+    <link rel="stylesheet" href="~/Content/NewCSS/css/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="~/Content/NewCSS/css/skins/skin-blue.min.css">
+
+
+    <style>
+        /*.panel-body {
+            background-color:silver !important;
+        }*/
+        html, button, input, optgroup, select, textarea {
+            font-family: Calibri;
+        }
+
+        .field-validation-error {
+            color: #ff0000;
+        }
+
+        .field-validation-valid {
+            display: none;
+        }
+
+        .input-validation-error {
+            border: 1px solid #ff0000;
+            background-color: #ffeeee;
+        }
+
+        .validation-summary-errors {
+            font-weight: bold;
+            color: #ff0000;
+        }
+
+        .validation-summary-valid {
+            display: none;
+        }
+
+        .required:after {
+            content: " *";
+            font-weight: bold;
+            color: red;
+        }
+
+        .headinglabel {
+            font-family: Calibri;
+            font-size: 14px;
+            color: #fff !important;
+        }
+
+        .newlink {
+            padding-left: 20px;
+        }
+
+        .newrowpadding {
+            padding-top: 10px;
+        }
+
+        .cbtnpadding {
+            padding-left: 30px;
+        }
+
+        .btnwidth {
+            width: 100px;
+        }
+
+        .textright {
+            text-align: right;
+        }
+
+        .textleft {
+            text-align: left;
+        }
+
+
+        .tblfont {
+            font-family: Calibri;
+            font-size: 15px;
+        }
+
+        .headingfont {
+            font-family: Calibri;
+        }
+
+        .tblbackground {
+            background-color: #fff;
+        }
+
+        .indexbtnpadding {
+            padding-left: 15px;
+        }
+
+        .no-js #loader {
+            display: none;
+        }
+
+        .js #loader {
+            display: block;
+            position: absolute;
+            left: 100px;
+            top: 0;
+        }
+
+        .se-pre-con {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            /*/background: url(images/loader-64x/Preloader_2.gif) center no-repeat #fff;*/
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            box-sizing: border-box;
+            display: inline-block;
+            min-width: 1.5em;
+            padding: 0.5em 1em;
+            margin-left: 2px;
+            text-align: center;
+            text-decoration: none !important;
+            cursor: pointer;
+            background-color: #35b8eb;
+            color: white !important;
+            border: 1px solid transparent;
+            font-family: Calibri;
+        }
+
+        #dataTables-example_filter {
+            display: none !important;
+            font-family: Calibri;
+        }
+
+        #mydataTable-example_filter {
+            display: none !important;
+            font-family: Calibri;
+        }
+
+        input[type=text]:focus, textarea:focus {
+            border-color: red;
+        }
+
+        input[type=select]:focus {
+            border-color: red;
+        }
+    </style>
+
+    <style>
+        @@media screen and (min-width: 992px) {
+
+            .notifyjs-corner {
+                width: 65% !important;
+                border-radius: 1px;
+                font-family: Calibri;
+            }
+
+            .notifyjs-bootstrap-base {
+                text-align: center !important;
+                font-family: Calibri;
+                /*background-color:#35b8eb;
+        color:white;*/
+            }
+        }
+    </style>
+    <style type="text/css">
+        body {
+            font-family: Calibri;
+            font-size: 10pt;
+        }
+
+        .modalloader {
+            position: fixed;
+            z-index: 999;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: Black;
+            filter: alpha(opacity=60);
+            opacity: 0.6;
+            -moz-opacity: 0.8;
+        }
+
+        .center {
+            z-index: 1000;
+            margin: 300px auto;
+            padding: 10px;
+            width: 130px;
+            background-color: White;
+            border-radius: 10px;
+            filter: alpha(opacity=100);
+            opacity: 1;
+            -moz-opacity: 1;
+        }
+
+            .center img {
+                height: 128px;
+                width: 128px;
+            }
+    </style>
+
+    <script>
+
+
+        function showLoading() {
+            $(".modalloader").show();
+        }
+        function hideLoading() {
+            $(".modalloader").hide();
+        }
+
+
+        //paste this code under head tag or in a seperate js file.
+        // Wait for window load
+        $(window).load(function () {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");;
+        });
+    </script>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+         @*   $.ajax({
+                type: "POST",
+                url: "/Login/GetAllYears",
+                datatype: "Json",
+                success: function (data) {
+                    $("#FYearID").empty();
+
+                    $.each(data, function (index, value) {
+                        $('#FYearID').append('<option value="' + value.AcFinancialYearID + '">' + value.FYearName + '</option>');
+
+
+                    });
+                    var fy = '@Session["fyearid"].ToString()';
+
+                    $("#AcFYearID option[value='" + fy + "']").attr("selected", "selected");
+                }
+            });
+
+
+            $(".txttarget").change(function () {
+                var x = $(this);
+                var str = "";
+                str = x.val();
+                var splitStr = str.toLowerCase().split(' ');
+                for (var i = 0; i < splitStr.length; i++) {
+                    // You do not need to check if i is larger than splitStr length, as your for does that for you
+                    // Assign it back to the array
+                    splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+                }
+                // Directly return the joined string
+                var newtxt = "";
+                newtxt = splitStr.join(' ');
+                $(x).val('');
+                $(x).val(newtxt);
+
+            });
+
+            $("#AcFYearID").change(function () {
+
+
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("GetChangeFyear", "Login")',
+                    datatype: "html",
+                    data: { FyearId: $('#AcFYearID').val() },
+                    success: function (data) {
+                        window.location.href ='@System.Configuration.ConfigurationManager.AppSettings["HomePath"].ToString()';
+
+                    }
+                });
+            });*@
+
+            $(".tdtarget").each(function () {
+                var x = $(this);
+                var str = "";
+                str = x.text();
+                var splitStr = str.toLowerCase().split(' ');
+                for (var i = 0; i < splitStr.length; i++) {
+                    // You do not need to check if i is larger than splitStr length, as your for does that for you
+                    // Assign it back to the array
+                    splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+                }
+                // Directly return the joined string
+                var newtxt = "";
+                newtxt = splitStr.join(' ');
+                $(x).text('');
+                $(x).text(newtxt);
+
+            });
+
+
+            $(":text").css({ "border-radius": "5px" });
+            $("select").css({ "border-radius": "5px" });
+
+
+        });
+
+    </script>
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini ">
+    <div class="modalloader" style="display: none">
+        <div class="center">
+        </div>
+    </div>
+    <div class="se-pre-con"></div>
+    <div class="wrapper">
+
+        <!-- Main Header -->
+        <header class="main-header">
+
+            <!-- Logo -->
+            <a href="/Home/Home" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini">
+                    <h2>Honey Sales</h2>
+                </span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg">
+                    <h2>Honey Sales</h2>
+                </span>
+            </a>
+
+            <!-- Header Navbar -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button"><span class="sr-only">Toggle navigation</span> </a>
+
+                <!-- Navbar Right Menu -->
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+
+                        <!-- User Account Menu -->
+                        <li class="dropdown user user-menu">
+                            <!-- Menu Toggle Button -->
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <!-- The user image in the navbar-->
+                                <img src="/Content/NewCSS/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                                <span class="hidden-xs">@Convert.ToString(Session["UserName"])</span> <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu extended logout">
+                                <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
+                                <li><a href="#"><i class="fa fa-cog"></i>Settings</a></li>
+                                <li><a href="/Login/Signout"><i class="fa fa-key"></i>Log Out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+
+                <!-- Sidebar Menu -->
+                <ul class="sidebar-menu">
+                    <li class="active">
+                        <a id="1004" href=""><i></i><span>Transaction</span></a>
+                        <ul class="treeview-menu menu-open" style="display: block;">
+                            <li>
+                                <a id="1014" href="/Customer/Listing"><i class="fa  fa-briefcase"></i><span>Customer Detail</span></a>
+                            </li>
+                            <li>
+                                <a id="1012" href="/User/Listing"><i class="fa fa-user"></i><span>User Detail</span></a>
+                            </li>
+
+                            <li>
+                                <a id="1082" href="/DeliveryDetail/Listing"><i class="fa  fa-truck"></i><span>Delivery Details</span></a>
+                            </li>
+                             <li>
+                                <a id="1089" href="/Payment/Listing"><i class="fa fa-credit-card"></i><span>Staff Payments</span></a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a id="1005" href=""><i></i><span>Cylinder Details</span></a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <a id="1017" href="/Purchase/Listing"><i></i><span>Purchase Cylinder</span></a>
+                            </li>
+                            <li>
+                                <a id="1018" href="/Return/Listing"><i></i><span>Return Cylinder</span></a>
+                            </li>
+                            <li>
+                                <a id="1019" href="/Load/Listing"><i></i><span>Load Cylinder</span></a>
+                            </li>
+                            <li>
+                                <a id="1020" href="/Unload/Listing"><i></i><span>Unload Cylinder</span></a>
+                            </li>
+                            <li>
+                                <a id="1021" href="/Cylinder/Listing"><i></i><span>CylinderType Master</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a id="1006" href=""><i></i><span>Report</span></a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <a id="1011" href="/Cylinder/Listing_LiveCylinder"><i></i><span>Live Cylinder Report</span></a>
+                                <a id="1013" href="/Customer/CustomerCylinderReport"><i></i><span>Customer Cylinder Report</span></a>
+                                <a id="1015" href="/DeliveryDetail/DeliveryDetailReport"><i></i><span>Delivery Detail Report</span></a>
+                                <a id="1016" href="/Load/StaffCylinderDetail"><i></i><span>Staff Cylinder Detail Report</span></a>
+                                <a id="1016" href="/Customer/CustomerPaymentReport"><i></i><span>Customer Payment Report</span></a>
+
+
+                            </li>
+
+                        </ul>
+                    </li>
+                    <!-- Optionally, you can add icons to the links -->
+
+
+                </ul>
+
+                <!-- /.sidebar-menu -->
+            </section>
+
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+
+
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            @RenderBody()
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <!-- To the right -->
+            <!-- Default to the left -->
+            Copyright &copy; 2018 <a href="#">HoneySales</a>. All rights reserved.
+        </footer>
+    </div>
+    <!-- ./wrapper -->
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Report</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="radio" name="rpttype" id="plain" class="rbtn" value="plain" />&nbsp;Plain Report<br />
+                    <br />
+                    <input type="radio" id="formatted" name="rpttype" class="rbtn" value="formatted" />&nbsp;Formatted Report
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-primary" id="btnsubmit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

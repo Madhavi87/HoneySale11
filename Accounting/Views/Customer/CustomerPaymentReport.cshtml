@@ -1,0 +1,180 @@
+﻿@model IEnumerable<HoneySaleDAL.CustomerPaymentDetail>
+@{
+    ViewBag.Title = "Customer Payments";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+<style>
+    tfoot {
+        display: table-header-group;
+    }
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+
+        $('#FromDate').datepicker({
+            dateFormat: 'dd-M-yy',
+            changeYear: true, changeMonth: true,
+        });
+
+        $('#ToDate').datepicker({
+            dateFormat: 'dd-M-yy',
+            changeYear: true, changeMonth: true,
+        });
+
+        $('#dataTables-example tfoot th').each(function () {
+            var title = $(this).text();
+            $(this).html('<input type="text" />');
+        });
+
+
+        var table = $('#dataTables-example').DataTable({ "sPaginationType": "full_numbers" });
+
+        table.columns().every(function () {
+            var that = this;
+
+            $('input', this.footer()).on('keyup change', function () {
+                if (that.search() !== this.value) {
+                    that
+                        .search(this.value)
+                        .draw();
+                }
+            });
+        });
+
+        $("#go").click(function () {
+            if ($('#FromDate').val() == "" && $('#ToDate').val() == "" && ('#CustomerNames option:selected').text() == "") {
+                alert("Please select Customer detail");
+                return false;
+            }
+        });
+
+    });
+
+
+
+
+</script>
+
+
+<section class="content-header">
+    <h1 class="headingfont">Customer Payment Detail</h1>
+
+</section>
+<section class="content">
+
+    <div class="row no-margin" style="margin-bottom:5px !important;">
+        @using (Html.BeginForm("CustomerPaymentReport", "Customer", FormMethod.Post))
+        {
+            <div class="col-md-3">
+                <label class="headinglabel">From Date</label>
+                @Html.TextBox("FromDate", "", new { @class = "form-control", @autocomplete = "off" })
+
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">To Date</label>
+                @Html.TextBox("ToDate", "", new { @class = "form-control", @autocomplete = "off" })
+
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Customer</label>
+
+                @Html.DropDownList("CustomerNames", @ViewBag.CustomerNames as SelectList, "", new { @class = "form-control txttarget" })
+            </div>
+
+            <div class="col-md-3">
+                <label class="headinglabel"> </label>
+                <input type="submit" value="Go" id="go" class="btn btn-default" style="margin-top:22px" />
+            </div>
+
+        }
+    </div>
+    @if (ViewBag.SuccessMsg != null)
+    {
+        <script type="text/javascript">
+         $(document).ready(function () {
+             $.notify("@ViewBag.SuccessMsg ", "success");
+         });
+        </script>
+    }
+    <div class="table-responsive tblbackground" style="padding:15px">
+        <table class="table table-responsive table-bordered tblfont" id="dataTables-example">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.Label("Customer Name")
+                    </th>
+                    <th>
+                        @Html.Label("Balance Amount")
+                    </th>
+                    <th>
+                        @Html.Label("Paid Amount")
+                    </th>
+                    <th>
+                        @Html.Label("Received On")
+                    </th>
+
+                    <th>
+                        @Html.Label("Received By")
+                    </th>
+                </tr>
+            </thead>
+
+            <tfoot>
+                <tr>
+                    <th>
+                        @Html.Label("Customer Name")
+                    </th>
+                    <th>
+                        @Html.Label("Balance Amount")
+                    </th>
+                    <th>
+                        @Html.Label("Paid Amount")
+                    </th>
+                    <th>
+                        @Html.Label("Received On")
+                    </th>
+
+                    <th>
+                        @Html.Label("Received By")
+                    </th>
+
+                </tr>
+
+            </tfoot>
+
+
+            <tbody>
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CustomerDetail.companyName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.balanceAmount)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PaidAmount)
+                            </td>
+                            <td>
+                                <span> @HoneySale.Models.CommonFunction.GetShortDayFormat(item.date)</span>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.received)
+                            </td>
+
+                        </tr>
+                    }
+                }
+                <//tbody>
+        </table>
+    </div>
+</section>
+

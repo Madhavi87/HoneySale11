@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Honey Sale";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>Welcome,@Convert.ToString(Session["UserName"])  </h1>
+    @* <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+          <li class="active">Here</li>
+        </ol>*@
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>@ViewBag.CustomerCount</h3>
+                    <p>Customer Details</p>
+                </div>
+                <div class="icon"><i class="fa fa-user"></i></div>
+                <a class="small-box-footer" href="/Customer/Listing">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3>@ViewBag.UserCount</h3>
+                    <p>User Detail</p>
+                </div>
+                <div class="icon"><i class="fa fa-truck"></i></div>
+                <a class="small-box-footer" href="/User/Listing">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3>@ViewBag.DeliveryCount</h3>
+                    <p>Delivery Detail</p>
+                </div>
+                <div class="icon"><i class="fa fa-credit-card"></i></div>
+                <a class="small-box-footer" href="/DeliveryDetail/Listing">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+    </div>
+</section>
+<!-- /.content -->

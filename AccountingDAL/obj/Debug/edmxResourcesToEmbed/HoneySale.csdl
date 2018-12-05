@@ -1,0 +1,586 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="honeysaleModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="honeysaleEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="CustomerDetails" EntityType="honeysaleModel.CustomerDetail" />
+    <EntitySet Name="CylinderMasters" EntityType="honeysaleModel.CylinderMaster" />
+    <EntitySet Name="LoadCylinders" EntityType="honeysaleModel.LoadCylinder" />
+    <EntitySet Name="ReturnCylinders" EntityType="honeysaleModel.ReturnCylinder" />
+    <EntitySet Name="tblroles" EntityType="honeysaleModel.tblrole" />
+    <EntitySet Name="UnloadCylinders" EntityType="honeysaleModel.UnloadCylinder" />
+    <FunctionImport Name="sp_AddCustomer" ReturnType="Collection(honeysaleModel.sp_AddCustomer_Result)">
+      <Parameter Name="pFirstName" Mode="In" Type="String" />
+      <Parameter Name="pLastName" Mode="In" Type="String" />
+      <Parameter Name="pEmail" Mode="In" Type="String" />
+      <Parameter Name="pMobileNo" Mode="In" Type="String" />
+      <Parameter Name="pDiscount" Mode="In" Type="Double" />
+      <Parameter Name="pAadhar" Mode="In" Type="String" />
+      <Parameter Name="pAddress" Mode="In" Type="String" />
+      <Parameter Name="responseMessage" Mode="InOut" Type="String" />
+      <Parameter Name="type" Mode="InOut" Type="Boolean" />
+      <Parameter Name="msg" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="userLogin" ReturnType="Collection(honeysaleModel.userLogin_Result)">
+      <Parameter Name="pUserName" Mode="In" Type="String" />
+      <Parameter Name="pPassword" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="InOut" Type="Boolean" />
+      <Parameter Name="message" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="userLogin1">
+      <Parameter Name="pUserName" Mode="In" Type="String" />
+      <Parameter Name="pPassword" Mode="In" Type="String" />
+      <Parameter Name="status" Mode="InOut" Type="Boolean" />
+      <Parameter Name="message" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tblusers" EntityType="honeysaleModel.tbluser" />
+    <AssociationSet Name="FK_LoadCylinder" Association="honeysaleModel.FK_LoadCylinder">
+      <End Role="tbluser" EntitySet="tblusers" />
+      <End Role="LoadCylinder" EntitySet="LoadCylinders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Unloads" Association="honeysaleModel.FK_Unloads">
+      <End Role="tbluser" EntitySet="tblusers" />
+      <End Role="UnloadCylinder" EntitySet="UnloadCylinders" />
+    </AssociationSet>
+    <EntitySet Name="PurchaseDetails" EntityType="honeysaleModel.PurchaseDetail" />
+    <AssociationSet Name="FK_CylinderID" Association="honeysaleModel.FK_CylinderID">
+      <End Role="CylinderMaster" EntitySet="CylinderMasters" />
+      <End Role="PurchaseDetail" EntitySet="PurchaseDetails" />
+    </AssociationSet>
+    <EntitySet Name="LoadDetails" EntityType="honeysaleModel.LoadDetail" />
+    <EntitySet Name="ReturnDetails" EntityType="honeysaleModel.ReturnDetail" />
+    <EntitySet Name="UnloadDetails" EntityType="honeysaleModel.UnloadDetail" />
+    <AssociationSet Name="FK_CylinderReturnDetail" Association="honeysaleModel.FK_CylinderReturnDetail">
+      <End Role="CylinderMaster" EntitySet="CylinderMasters" />
+      <End Role="ReturnDetail" EntitySet="ReturnDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoadDetailCylinder" Association="honeysaleModel.FK_LoadDetailCylinder">
+      <End Role="CylinderMaster" EntitySet="CylinderMasters" />
+      <End Role="LoadDetail" EntitySet="LoadDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UnloadDetailCylinder" Association="honeysaleModel.FK_UnloadDetailCylinder">
+      <End Role="CylinderMaster" EntitySet="CylinderMasters" />
+      <End Role="UnloadDetail" EntitySet="UnloadDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_loadDetail" Association="honeysaleModel.FK_loadDetail">
+      <End Role="LoadCylinder" EntitySet="LoadCylinders" />
+      <End Role="LoadDetail" EntitySet="LoadDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReturnDetail" Association="honeysaleModel.FK_ReturnDetail">
+      <End Role="ReturnCylinder" EntitySet="ReturnCylinders" />
+      <End Role="ReturnDetail" EntitySet="ReturnDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UnnloadDetial" Association="honeysaleModel.FK_UnnloadDetial">
+      <End Role="UnloadCylinder" EntitySet="UnloadCylinders" />
+      <End Role="UnloadDetail" EntitySet="UnloadDetails" />
+    </AssociationSet>
+    <EntitySet Name="PurchaseCylinders" EntityType="honeysaleModel.PurchaseCylinder" />
+    <AssociationSet Name="FK_Purchase" Association="honeysaleModel.FK_Purchase">
+      <End Role="PurchaseCylinder" EntitySet="PurchaseCylinders" />
+      <End Role="PurchaseDetail" EntitySet="PurchaseDetails" />
+    </AssociationSet>
+    <EntitySet Name="LiveCylinderDetails" EntityType="honeysaleModel.LiveCylinderDetail" />
+    <EntitySet Name="CustomerCylinderDetails" EntityType="honeysaleModel.CustomerCylinderDetail" />
+    <AssociationSet Name="FK_CustomerCylinder" Association="honeysaleModel.FK_CustomerCylinder">
+      <End Role="CustomerDetail" EntitySet="CustomerDetails" />
+      <End Role="CustomerCylinderDetail" EntitySet="CustomerCylinderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustCylinderDetail" Association="honeysaleModel.FK_CustCylinderDetail">
+      <End Role="CylinderMaster" EntitySet="CylinderMasters" />
+      <End Role="CustomerCylinderDetail" EntitySet="CustomerCylinderDetails" />
+    </AssociationSet>
+    <EntitySet Name="CustomerPaymentDetails" EntityType="honeysaleModel.CustomerPaymentDetail" />
+    <EntitySet Name="DeliveryDetails" EntityType="honeysaleModel.DeliveryDetail" />
+    <AssociationSet Name="FK_Customer" Association="honeysaleModel.FK_Customer">
+      <End Role="CustomerDetail" EntitySet="CustomerDetails" />
+      <End Role="DeliveryDetail" EntitySet="DeliveryDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PaymentCust_ID" Association="honeysaleModel.FK_PaymentCust_ID">
+      <End Role="CustomerDetail" EntitySet="CustomerDetails" />
+      <End Role="CustomerPaymentDetail" EntitySet="CustomerPaymentDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cylinder" Association="honeysaleModel.FK_Cylinder">
+      <End Role="CylinderMaster" EntitySet="CylinderMasters" />
+      <End Role="DeliveryDetail" EntitySet="DeliveryDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeliveryDetail_tbluser" Association="honeysaleModel.FK_DeliveryDetail_tbluser">
+      <End Role="tbluser" EntitySet="tblusers" />
+      <End Role="DeliveryDetail" EntitySet="DeliveryDetails" />
+    </AssociationSet>
+    <EntitySet Name="StaffPayments" EntityType="honeysaleModel.StaffPayment" />
+    <AssociationSet Name="FK_Staff_ID" Association="honeysaleModel.FK_Staff_ID">
+      <End Role="tbluser" EntitySet="tblusers" />
+      <End Role="StaffPayment" EntitySet="StaffPayments" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CustomerDetail">
+    <Key>
+      <PropertyRef Name="cust_id" />
+    </Key>
+    <Property Name="companyName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="address" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="contact_Num_1" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="contact_Num_2" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="gst" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="discount" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="cust_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Type="Decimal" Name="openingBalance" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="balanceAmount" Precision="19" Scale="4" />
+    <NavigationProperty Name="CustomerCylinderDetails" Relationship="honeysaleModel.FK_CustomerCylinder" FromRole="CustomerDetail" ToRole="CustomerCylinderDetail" />
+    <NavigationProperty Name="DeliveryDetails" Relationship="honeysaleModel.FK_Customer" FromRole="CustomerDetail" ToRole="DeliveryDetail" />
+    <NavigationProperty Name="CustomerPaymentDetails" Relationship="honeysaleModel.FK_PaymentCust_ID" FromRole="CustomerDetail" ToRole="CustomerPaymentDetail" />
+  </EntityType>
+  <EntityType Name="CylinderMaster">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="cylinderType" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="amount" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="PurchaseDetails" Relationship="honeysaleModel.FK_CylinderID" FromRole="CylinderMaster" ToRole="PurchaseDetail" />
+    <NavigationProperty Name="ReturnDetails" Relationship="honeysaleModel.FK_CylinderReturnDetail" FromRole="CylinderMaster" ToRole="ReturnDetail" />
+    <NavigationProperty Name="LoadDetails" Relationship="honeysaleModel.FK_LoadDetailCylinder" FromRole="CylinderMaster" ToRole="LoadDetail" />
+    <NavigationProperty Name="UnloadDetails" Relationship="honeysaleModel.FK_UnloadDetailCylinder" FromRole="CylinderMaster" ToRole="UnloadDetail" />
+    <NavigationProperty Name="CustomerCylinderDetails" Relationship="honeysaleModel.FK_CustCylinderDetail" FromRole="CylinderMaster" ToRole="CustomerCylinderDetail" />
+    <Property Type="Int32" Name="openingFilled" />
+    <Property Type="Int32" Name="openingEmpty" />
+    <Property Type="Int32" Name="openingReplace" />
+    <Property Type="DateTime" Name="CreatedOn" Precision="3" />
+    <Property Type="DateTime" Name="ModifiedOn" Precision="3" />
+    <Property Type="String" Name="CreatedBy" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ModifiedBy" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DeliveryDetails" Relationship="honeysaleModel.FK_Cylinder" FromRole="CylinderMaster" ToRole="DeliveryDetail" />
+  </EntityType>
+  <EntityType Name="LoadCylinder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="loadDate" Type="DateTime" Precision="3" />
+    <Property Name="createdBy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="createdOn" Type="DateTime" Precision="3" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="userName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbluser" Relationship="honeysaleModel.FK_LoadCylinder" FromRole="LoadCylinder" ToRole="tbluser" />
+    <NavigationProperty Name="LoadDetails" Relationship="honeysaleModel.FK_loadDetail" FromRole="LoadCylinder" ToRole="LoadDetail" />
+  </EntityType>
+  <EntityType Name="ReturnCylinder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="dealerName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="emptyCylinder" Type="Int32" />
+    <Property Name="returnDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ReturnDetails" Relationship="honeysaleModel.FK_ReturnDetail" FromRole="ReturnCylinder" ToRole="ReturnDetail" />
+    <Property Type="String" Name="ERVNo" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblrole">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="roleid" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="roleid" Type="Int32" Nullable="false" />
+    <Property Name="rolename" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="UnloadCylinder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="EmptyCylinder" Type="Int32" Nullable="false" />
+    <Property Name="UnloadDate" Type="DateTime" Precision="3" />
+    <Property Name="createdBy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="createdOn" Type="DateTime" Precision="3" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Type="String" Name="userName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbluser" Relationship="honeysaleModel.FK_Unloads" FromRole="UnloadCylinder" ToRole="tbluser" />
+    <NavigationProperty Name="UnloadDetails" Relationship="honeysaleModel.FK_UnnloadDetial" FromRole="UnloadCylinder" ToRole="UnloadDetail" />
+    <Property Type="Boolean" Name="DeliveryFlag" />
+  </EntityType>
+  <ComplexType Name="sp_AddCustomer_Result">
+    <Property Type="Int32" Name="custid" Nullable="false" />
+    <Property Type="Int32" Name="crnno" Nullable="false" />
+    <Property Type="String" Name="firstname" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="lastname" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="email_id" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="contact" Nullable="false" MaxLength="50" />
+    <Property Type="Double" Name="discount" Nullable="false" />
+    <Property Type="String" Name="aadharno" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="address" Nullable="false" MaxLength="250" />
+    <Property Type="DateTime" Name="createddate" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="updateddate" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="userLogin_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="role_id" Nullable="true" />
+    <Property Type="String" Name="firstname" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="lastname" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="username" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="tbluser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="firstname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="lastname" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="username" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="passwordHash" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="salt" />
+    <Property Type="Int32" Name="role_id" />
+    <NavigationProperty Name="LoadCylinders" Relationship="honeysaleModel.FK_LoadCylinder" FromRole="tbluser" ToRole="LoadCylinder" />
+    <NavigationProperty Name="UnloadCylinders" Relationship="honeysaleModel.FK_Unloads" FromRole="tbluser" ToRole="UnloadCylinder" />
+    <Property Type="String" Name="phone" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="isActive" Nullable="false" />
+    <NavigationProperty Name="DeliveryDetails" Relationship="honeysaleModel.FK_DeliveryDetail_tbluser" FromRole="tbluser" ToRole="DeliveryDetail" />
+    <NavigationProperty Name="StaffPayments" Relationship="honeysaleModel.FK_Staff_ID" FromRole="tbluser" ToRole="StaffPayment" />
+  </EntityType>
+  <Association Name="FK_LoadCylinder">
+    <End Type="honeysaleModel.tbluser" Role="tbluser" Multiplicity="1" />
+    <End Type="honeysaleModel.LoadCylinder" Role="LoadCylinder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbluser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LoadCylinder">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Unloads">
+    <End Type="honeysaleModel.tbluser" Role="tbluser" Multiplicity="1" />
+    <End Type="honeysaleModel.UnloadCylinder" Role="UnloadCylinder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbluser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UnloadCylinder">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PurchaseDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="cylinderType" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="cylinder_Id" />
+    <Property Type="Int32" Name="purchase_Id" />
+    <Property Type="Int32" Name="FilledCylinder" />
+    <NavigationProperty Name="CylinderMaster" Relationship="honeysaleModel.FK_CylinderID" FromRole="PurchaseDetail" ToRole="CylinderMaster" />
+    <NavigationProperty Name="PurchaseCylinder" Relationship="honeysaleModel.FK_Purchase" FromRole="PurchaseDetail" ToRole="PurchaseCylinder" />
+  </EntityType>
+  <Association Name="FK_CylinderID">
+    <End Type="honeysaleModel.CylinderMaster" Role="CylinderMaster" Multiplicity="0..1" />
+    <End Type="honeysaleModel.PurchaseDetail" Role="PurchaseDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CylinderMaster">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PurchaseDetail">
+        <PropertyRef Name="cylinder_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="LoadDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="cylinderType" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="cylinder_Id" />
+    <Property Type="Int32" Name="load_Id" />
+    <Property Type="Int32" Name="FilledCylinder" />
+    <NavigationProperty Name="CylinderMaster" Relationship="honeysaleModel.FK_LoadDetailCylinder" FromRole="LoadDetail" ToRole="CylinderMaster" />
+    <NavigationProperty Name="LoadCylinder" Relationship="honeysaleModel.FK_loadDetail" FromRole="LoadDetail" ToRole="LoadCylinder" />
+  </EntityType>
+  <EntityType Name="ReturnDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="cylinderType" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="cylinder_Id" />
+    <Property Type="Int32" Name="return_Id" />
+    <Property Type="Int32" Name="FilledCylinder" />
+    <Property Type="Int32" Name="EmptyCylinder" />
+    <NavigationProperty Name="CylinderMaster" Relationship="honeysaleModel.FK_CylinderReturnDetail" FromRole="ReturnDetail" ToRole="CylinderMaster" />
+    <NavigationProperty Name="ReturnCylinder" Relationship="honeysaleModel.FK_ReturnDetail" FromRole="ReturnDetail" ToRole="ReturnCylinder" />
+    <Property Type="Int32" Name="RejectedCylinder" />
+  </EntityType>
+  <EntityType Name="UnloadDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="cylinderType" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="cylinder_Id" />
+    <Property Type="Int32" Name="unload_Id" />
+    <Property Type="Int32" Name="EmptyCylinder" />
+    <NavigationProperty Name="CylinderMaster" Relationship="honeysaleModel.FK_UnloadDetailCylinder" FromRole="UnloadDetail" ToRole="CylinderMaster" />
+    <NavigationProperty Name="UnloadCylinder" Relationship="honeysaleModel.FK_UnnloadDetial" FromRole="UnloadDetail" ToRole="UnloadCylinder" />
+    <Property Type="Int32" Name="FilledCylinder" />
+    <Property Type="Int32" Name="RejectedCylinder" />
+  </EntityType>
+  <Association Name="FK_CylinderReturnDetail">
+    <End Type="honeysaleModel.CylinderMaster" Role="CylinderMaster" Multiplicity="0..1" />
+    <End Type="honeysaleModel.ReturnDetail" Role="ReturnDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CylinderMaster">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReturnDetail">
+        <PropertyRef Name="cylinder_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoadDetailCylinder">
+    <End Type="honeysaleModel.CylinderMaster" Role="CylinderMaster" Multiplicity="0..1" />
+    <End Type="honeysaleModel.LoadDetail" Role="LoadDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CylinderMaster">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LoadDetail">
+        <PropertyRef Name="cylinder_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UnloadDetailCylinder">
+    <End Type="honeysaleModel.CylinderMaster" Role="CylinderMaster" Multiplicity="0..1" />
+    <End Type="honeysaleModel.UnloadDetail" Role="UnloadDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CylinderMaster">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UnloadDetail">
+        <PropertyRef Name="cylinder_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_loadDetail">
+    <End Type="honeysaleModel.LoadCylinder" Role="LoadCylinder" Multiplicity="0..1" />
+    <End Type="honeysaleModel.LoadDetail" Role="LoadDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoadCylinder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LoadDetail">
+        <PropertyRef Name="load_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReturnDetail">
+    <End Type="honeysaleModel.ReturnCylinder" Role="ReturnCylinder" Multiplicity="0..1" />
+    <End Type="honeysaleModel.ReturnDetail" Role="ReturnDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReturnCylinder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReturnDetail">
+        <PropertyRef Name="return_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UnnloadDetial">
+    <End Type="honeysaleModel.UnloadCylinder" Role="UnloadCylinder" Multiplicity="0..1" />
+    <End Type="honeysaleModel.UnloadDetail" Role="UnloadDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnloadCylinder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UnloadDetail">
+        <PropertyRef Name="unload_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PurchaseCylinder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="String" Name="dealerName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="BillNo" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="purchaseDate" Precision="3" />
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Decimal" Name="amount" Precision="19" Scale="4" />
+    <NavigationProperty Name="PurchaseDetails" Relationship="honeysaleModel.FK_Purchase" FromRole="PurchaseCylinder" ToRole="PurchaseDetail" />
+  </EntityType>
+  <Association Name="FK_Purchase">
+    <End Type="honeysaleModel.PurchaseCylinder" Role="PurchaseCylinder" Multiplicity="0..1" />
+    <End Type="honeysaleModel.PurchaseDetail" Role="PurchaseDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseCylinder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PurchaseDetail">
+        <PropertyRef Name="purchase_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="LiveCylinderDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="cylinder_Id" />
+    <Property Type="Int32" Name="FilledCylinderCount" />
+    <Property Type="Int32" Name="EmptyCylinderCount" />
+    <Property Type="Int32" Name="ReplacementCylinderCount" />
+  </EntityType>
+  <EntityType Name="CustomerCylinderDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="cylinderType" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="totalCylinder" />
+    <Property Type="Int32" Name="cust_id" />
+    <Property Type="String" Name="discount" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CustomerDetail" Relationship="honeysaleModel.FK_CustomerCylinder" FromRole="CustomerCylinderDetail" ToRole="CustomerDetail" />
+    <Property Type="Int32" Name="cylinder_Id" />
+    <NavigationProperty Name="CylinderMaster" Relationship="honeysaleModel.FK_CustCylinderDetail" FromRole="CustomerCylinderDetail" ToRole="CylinderMaster" />
+    <Property Type="Int32" Name="openingCylinder" />
+  </EntityType>
+  <Association Name="FK_CustomerCylinder">
+    <End Type="honeysaleModel.CustomerDetail" Role="CustomerDetail" Multiplicity="0..1" />
+    <End Type="honeysaleModel.CustomerCylinderDetail" Role="CustomerCylinderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerDetail">
+        <PropertyRef Name="cust_id" />
+      </Principal>
+      <Dependent Role="CustomerCylinderDetail">
+        <PropertyRef Name="cust_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustCylinderDetail">
+    <End Type="honeysaleModel.CylinderMaster" Role="CylinderMaster" Multiplicity="0..1" />
+    <End Type="honeysaleModel.CustomerCylinderDetail" Role="CustomerCylinderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CylinderMaster">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CustomerCylinderDetail">
+        <PropertyRef Name="cylinder_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CustomerPaymentDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cust_Id" Type="Int32" Nullable="false" />
+    <Property Name="balanceAmount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PaidAmount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="date" Type="DateTime" Precision="3" />
+    <Property Name="received" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="createdBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="signature" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="CustomerDetail" Relationship="honeysaleModel.FK_PaymentCust_ID" FromRole="CustomerPaymentDetail" ToRole="CustomerDetail" />
+  </EntityType>
+  <EntityType Name="DeliveryDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="C_deliveryDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="voucherNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="cylinderAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="filledCylinder" Type="Int32" />
+    <Property Name="emptyCylinder" Type="Int32" />
+    <Property Name="totalAmount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="paidAmount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="balanceAmount" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cust_id" Type="Int32" Nullable="false" />
+    <Property Name="cylinder_Id" Type="Int32" Nullable="false" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Custsignature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="signature" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="CustomerDetail" Relationship="honeysaleModel.FK_Customer" FromRole="DeliveryDetail" ToRole="CustomerDetail" />
+    <NavigationProperty Name="CylinderMaster" Relationship="honeysaleModel.FK_Cylinder" FromRole="DeliveryDetail" ToRole="CylinderMaster" />
+    <Property Name="userid" Type="Int32" />
+    <NavigationProperty Name="tbluser" Relationship="honeysaleModel.FK_DeliveryDetail_tbluser" FromRole="DeliveryDetail" ToRole="tbluser" />
+    <Property Type="Decimal" Name="cgst" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="sgst" Precision="18" Scale="0" />
+    <Property Type="String" Name="username" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="replacementCylinder" />
+    <Property Type="Boolean" Name="unload_Flag" />
+  </EntityType>
+  <Association Name="FK_Customer">
+    <End Type="honeysaleModel.CustomerDetail" Role="CustomerDetail" Multiplicity="1" />
+    <End Type="honeysaleModel.DeliveryDetail" Role="DeliveryDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerDetail">
+        <PropertyRef Name="cust_id" />
+      </Principal>
+      <Dependent Role="DeliveryDetail">
+        <PropertyRef Name="cust_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PaymentCust_ID">
+    <End Type="honeysaleModel.CustomerDetail" Role="CustomerDetail" Multiplicity="1" />
+    <End Type="honeysaleModel.CustomerPaymentDetail" Role="CustomerPaymentDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerDetail">
+        <PropertyRef Name="cust_id" />
+      </Principal>
+      <Dependent Role="CustomerPaymentDetail">
+        <PropertyRef Name="cust_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cylinder">
+    <End Type="honeysaleModel.CylinderMaster" Role="CylinderMaster" Multiplicity="1" />
+    <End Type="honeysaleModel.DeliveryDetail" Role="DeliveryDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CylinderMaster">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DeliveryDetail">
+        <PropertyRef Name="cylinder_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeliveryDetail_tbluser">
+    <End Type="honeysaleModel.tbluser" Role="tbluser" Multiplicity="0..1" />
+    <End Type="honeysaleModel.DeliveryDetail" Role="DeliveryDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbluser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DeliveryDetail">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="StaffPayment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="Staff__ID" />
+    <Property Type="Decimal" Name="Balance_Amount" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="Return_Amount" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="Return_Date" Precision="3" />
+    <Property Type="DateTime" Name="Received_On" Precision="3" />
+    <Property Type="String" Name="Received_By" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbluser" Relationship="honeysaleModel.FK_Staff_ID" FromRole="StaffPayment" ToRole="tbluser" />
+  </EntityType>
+  <Association Name="FK_Staff_ID">
+    <End Type="honeysaleModel.tbluser" Role="tbluser" Multiplicity="0..1" />
+    <End Type="honeysaleModel.StaffPayment" Role="StaffPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbluser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="StaffPayment">
+        <PropertyRef Name="Staff__ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

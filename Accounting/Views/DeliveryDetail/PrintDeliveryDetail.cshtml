@@ -1,0 +1,225 @@
+﻿@model HoneySaleDAL.DeliveryDetail
+@{
+    ViewBag.Title = "Delivery Detail Print";
+    Layout = "";
+}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Invoice</title>
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
+    <script type="text/javascript">
+        function PrintPage() {
+            //  $("#printbutton").hide();
+            window.print();
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" style="border:1px solid">
+            <div>
+                <div style="float:left"><img src="~/Content/honeysales/Bharat_Petroleum_Logo.png" height="100" width="100" /></div>
+                <div style="float:right"><img src="~/Content/honeysales/honeysales1logo.jpg" height="100" width="100" /></div>
+            </div>
+            <span style="text-align:center"> </span>
+            <table class="table table-bordered tblfont" border="1">
+                <tr>
+                    <td colspan="8" align="center"><b><u>GST Invoice</u></b></td>
+                </tr>
+                <tr>
+                    @*<td colspan="2" rowspan="3">
+                            <h5><b>HONEY SALES CORPORATION</b></h5>
+                            <p>
+                                7,ASHOK VIHAR, 2nd floor,<br />
+                                XLO POINT,MIDC AMBAD,<br />
+                                AMBAD-422010<br />
+                                GSTIN/UIN: 27AABPT1774F1ZM<br />
+                                State Name: Maharashtra, Code :27
+                                E-Mail: honeysalescorp@gmail.com<br />
+                            </p>
+
+                        </td>*@
+                    <td colspan="5">Transaction No: @Model.voucherNo</td>
+                    <td colspan="3">Transaction Date:  @Model.C_deliveryDate</td>
+                </tr>
+                <tr>
+                    <td colspan="5" align="left">
+                        <span><b>Name & Address of Distributor</b></span>
+                        @*<h5> HONEY SALES CORPORATION </h5>
+                        <p>
+                            7,ASHOK VIHAR, 2nd floor,<br />
+                            XLO POINT,MIDC AMBAD,<br />
+                            AMBAD-422010<br />
+                            GSTIN/UIN: 27AABPT1774F1ZM<br />
+                            State Name: Maharashtra, Code :27
+                            E-Mail: honeysalescorp@gmail.com<br />
+                        </p>*@
+                        <h5>Bharat Gas Agency</h5>
+                        <p>402,DP Road, Pune
+                        State:Maharashtra,Code: 123</p>
+
+                    </td>
+                    @*<td colspan="3">Delivery Note<br /></td>*@
+                    <td colspan="3">
+                        <b>
+                            Name & Address of Consumer
+                        </b>
+                        <h5> @Model.CustomerDetail.companyName </h5>
+                        <p>@Model.CustomerDetail.address</p>
+                        <p>@Model.CustomerDetail.gst</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="5" align="left">
+                        <b>Staff Details</b>
+                        <br />
+                        @Model.tbluser.username
+                        <br />
+                        @Model.tbluser.phone
+                    </td>
+                    <td colspan="3">
+                        <b> Cylinder Details </b>
+                        <p>Filled: @Model.filledCylinder</p>
+                        <p>Empty: @Model.emptyCylinder</p>
+                        <p>Replacement: 0 </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td>HSN/SAC</td>
+                    <td>QTY</td>
+                    <td>Rate</td>
+                    <td>Taxable Value</td>
+                    <td>CGST</td>
+                    <td>SGST</td>
+                    <td>Total Value</td>
+                </tr>
+
+
+                <tr>
+                    <td>  @Model.CylinderMaster.cylinderType </td>
+                    <td>2711</td>
+                    <td><b>@Model.filledCylinder</b></td>
+                    <td>@string.Format("{0:0.00}", @Model.cylinderAmount)</td>
+                    <td>@string.Format("{0:0.00}", Model.totalAmount)</td>
+                    <td> @string.Format("{0:0.00}", Model.cgst)</td>
+                    <td> @string.Format("{0:0.00}", Model.sgst)</td>
+                    <td> @string.Format("{0:0.00}", Model.balanceAmount)</td>
+                </tr>
+                @*<tr>
+                        <td></td>
+                        <td style="text-align:right">
+                            OutPut CGST &#64; 9%<br />
+                            OutPut SGST &#64; 9%
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            9<br />
+                            9
+                        </td>
+                        <td>%<br />%</td>
+                        <td>
+                            @string.Format("{0:0.00}", Model.cgst)<br />
+                            @string.Format("{0:0.00}", Model.sgst)
+                        </td>
+                    </tr>
+                    <tr><td colspan="7"><br /><br /></td></tr>
+                    <tr>
+                        <td></td>
+                        <td>Total</td>
+                        <td></td>
+                        <td><b>@Model.filledCylinder nos</b></td>
+                        <td></td>
+                        <td></td>
+                        <td>&#8377; <b> @string.Format("{0:0.00}", Model.balanceAmount)</b></td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="7">
+                            <span>Amount Chargeble(in words) <br /> <b>@ViewBag.AmntInWord</b></span>
+
+                            <span style="float:right">E & O.E<br /></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">HSN/SAC</td>
+                        <td rowspan="2">Taxable<br />Value</td>
+                        <td colspan="2">Central Tax</td>
+                        <td colspan="2">State Tax</td>
+                        <td rowspan="2">Total<br />Tax Amount</td>
+                    </tr>
+                    <tr>
+
+                        <td>Rate</td>
+                        <td>Amount</td>
+                        <td>Rate</td>
+                        <td>Amount</td>
+                    </tr>
+                    <tr>
+                        <td>2711</td>
+                        <td> @string.Format("{0:0.00}", Model.totalAmount)</td>
+                        <td>9%</td>
+                        <td> @string.Format("{0:0.00}", Model.cgst)</td>
+                        <td>9%</td>
+                        <td> @string.Format("{0:0.00}", Model.sgst)</td>
+                        <td>@string.Format("{0:0.00}", ViewBag.TaxAmnt)</td>
+                    </tr>
+                    <tr>
+                        <td><b>Total</b></td>
+                        <td><b> @string.Format("{0:0.00}", @Model.totalAmount)</b></td>
+                        <td></td>
+                        <td><b> @string.Format("{0:0.00}", Model.cgst)</b></td>
+                        <td></td>
+                        <td><b>@string.Format("{0:0.00}", @Model.sgst)</b></td>
+                        <td><b> @ViewBag.TaxAmnt</b></td>
+                    </tr>
+                    <tr>
+                        <td colspan="7" style="border-bottom:none">Tax Amount(in words): <b>@ViewBag.TaxAmntInWord</b></td>
+                    </tr>*@
+
+
+                <tr>
+                    <td colspan="8" style="border-top:none">
+                        @*<b>Company's PAN : AABPT1774F</b>*@
+                        <p>
+                            I confirm receipt of the above. I also confirm that the Cylinder has been weighed and checked for any leakage in my presence.<br />
+                            I have been explained the procedure for safe usage of LPG and have received the Safety Instruction card.<br />
+                            I have understood the Terms and Conditions as well as the Disclaimer clause printed below and confirm that I will abide by the
+                            same.<br />
+
+                        </p>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="4" align="left">
+
+
+                        <img src="@ViewBag.SignatureImage" width="50" height="50" style="margin-top:20px" /><br />
+                        Customer Sign
+                    </td>
+                    <td colspan="4" align="right">
+                        <img src="~/Content/img/OwnerSign.png" width="50" height="50" /><br />
+                        For Honey Sales Corporation
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="8">
+                        <div>
+                            <button id="printbutton" onclick="PrintPage()">Print</button>
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</body>
+</html>

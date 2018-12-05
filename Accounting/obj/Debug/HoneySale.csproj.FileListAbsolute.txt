@@ -1,0 +1,145 @@
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\HoneySale.dll
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\HoneySale.pdb
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\EntityFramework.dll
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\HoneySaleDAL.dll
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\Microsoft.Web.Infrastructure.dll
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\Newtonsoft.Json.dll
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\Num2Wrd.dll
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\System.Net.Http.Formatting.dll
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\System.Web.Helpers.dll
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\System.Web.Http.dll
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\System.Web.Http.WebHost.dll
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\System.Web.Mvc.dll
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\System.Web.WebPages.Deployment.dll
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\System.Web.WebPages.dll
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\System.Web.WebPages.Razor.dll
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\HoneySaleDAL.pdb
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\EntityFramework.xml
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\System.Web.Helpers.xml
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\System.Web.Mvc.xml
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\System.Web.WebPages.xml
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\System.Web.WebPages.Deployment.xml
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\System.Web.WebPages.Razor.xml
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\Newtonsoft.Json.xml
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\System.Net.Http.Formatting.xml
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\System.Web.Http.xml
+D:\Chetan_.Netprjts\HoneySale\Accounting\bin\System.Web.Http.WebHost.xml
+D:\Chetan_.Netprjts\HoneySale\Accounting\obj\Debug\HoneySale.csprojResolveAssemblyReference.cache
+D:\Chetan_.Netprjts\HoneySale\Accounting\obj\Debug\HoneySale.dll
+D:\Chetan_.Netprjts\HoneySale\Accounting\obj\Debug\HoneySale.pdb
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\obj\Debug\HoneySale.csprojAssemblyReference.cache
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\obj\Debug\HoneySale.csproj.CoreCompileInputs.cache
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\obj\Debug\HoneySale.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\obj\Debug\HoneySale.pdb
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\HoneySale.dll.config
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\HoneySale.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\HoneySale.pdb
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\ClosedXML.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\DocumentFormat.OpenXml.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\EntityFramework.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\HoneySaleDAL.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\Microsoft.Web.Infrastructure.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\Newtonsoft.Json.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\Num2Wrd.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\System.Net.Http.Formatting.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\System.Web.Helpers.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\System.Web.Http.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\System.Web.Http.WebHost.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\System.Web.Mvc.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\System.Web.Razor.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\System.Web.WebPages.Deployment.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\System.Web.WebPages.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\System.Web.WebPages.Razor.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\ExcelNumberFormat.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\FastMember.Signed.dll
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\HoneySaleDAL.pdb
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\HoneySaleDAL.dll.config
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\ClosedXML.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\DocumentFormat.OpenXml.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\EntityFramework.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\System.Web.Helpers.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\System.Web.Mvc.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\System.Web.WebPages.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\System.Web.WebPages.Deployment.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\System.Web.WebPages.Razor.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\Newtonsoft.Json.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\System.Net.Http.Formatting.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\System.Web.Http.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\System.Web.Http.WebHost.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\bin\ExcelNumberFormat.xml
+C:\Projects\HoneySales\Admin\17 Oct 2018\HoneySale_17Oct18\HoneySale\Accounting\obj\Debug\HoneySale.csproj.CopyComplete
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\HoneySale.dll
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\HoneySale.pdb
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\EntityFramework.dll
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\HoneySaleDAL.dll
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\Microsoft.Web.Infrastructure.dll
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\Newtonsoft.Json.dll
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\Num2Wrd.dll
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\System.Net.Http.Formatting.dll
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\System.Web.Helpers.dll
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\System.Web.Http.dll
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\System.Web.Http.WebHost.dll
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\System.Web.Mvc.dll
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\System.Web.WebPages.Deployment.dll
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\System.Web.WebPages.dll
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\System.Web.WebPages.Razor.dll
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\ExcelNumberFormat.dll
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\FastMember.Signed.dll
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\HoneySaleDAL.pdb
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\ClosedXML.xml
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\DocumentFormat.OpenXml.xml
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\EntityFramework.xml
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\System.Web.Helpers.xml
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\System.Web.Mvc.xml
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\System.Web.WebPages.xml
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\System.Web.WebPages.Deployment.xml
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\System.Web.WebPages.Razor.xml
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\Newtonsoft.Json.xml
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\System.Net.Http.Formatting.xml
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\System.Web.Http.xml
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\System.Web.Http.WebHost.xml
+D:\infogalaxy_prjts\HoneySale\Accounting\bin\ExcelNumberFormat.xml
+D:\infogalaxy_prjts\HoneySale\Accounting\obj\Debug\HoneySale.csprojResolveAssemblyReference.cache
+D:\infogalaxy_prjts\HoneySale\Accounting\obj\Debug\HoneySale.dll
+D:\infogalaxy_prjts\HoneySale\Accounting\obj\Debug\HoneySale.pdb
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\HoneySale.dll.config
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\HoneySale.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\HoneySale.pdb
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\ClosedXML.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\DocumentFormat.OpenXml.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\EntityFramework.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\HoneySaleDAL.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\Microsoft.Web.Infrastructure.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\Newtonsoft.Json.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\Num2Wrd.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\System.Net.Http.Formatting.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\System.Web.Helpers.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\System.Web.Http.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\System.Web.Http.WebHost.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\System.Web.Mvc.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\System.Web.Razor.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\System.Web.WebPages.Deployment.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\System.Web.WebPages.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\System.Web.WebPages.Razor.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\ExcelNumberFormat.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\FastMember.Signed.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\HoneySaleDAL.pdb
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\HoneySaleDAL.dll.config
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\ClosedXML.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\DocumentFormat.OpenXml.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\EntityFramework.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\System.Web.Helpers.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\System.Web.Mvc.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\System.Web.WebPages.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\System.Web.WebPages.Deployment.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\System.Web.WebPages.Razor.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\Newtonsoft.Json.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\System.Net.Http.Formatting.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\System.Web.Http.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\System.Web.Http.WebHost.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\bin\ExcelNumberFormat.xml
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\obj\Debug\HoneySale.csprojAssemblyReference.cache
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\obj\Debug\HoneySale.csproj.CoreCompileInputs.cache
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\obj\Debug\HoneySale.csproj.CopyComplete
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\obj\Debug\HoneySale.dll
+C:\Projects\HoneySales\Admin\20 Nov 2018\HoneySale\HoneySale\Accounting\obj\Debug\HoneySale.pdb

@@ -1,0 +1,175 @@
+﻿@model IEnumerable<HoneySaleDAL.CustomerDetail>
+@{
+    ViewBag.Title = "Customer Listing";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+<style>
+    tfoot {
+        display: table-header-group;
+    }
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+
+        $('#dataTables-example tfoot th').each(function () {
+            var title = $(this).text();
+            $(this).html('<input type="text" />');
+        });
+
+
+        var table = $('#dataTables-example').DataTable({ "sPaginationType": "full_numbers" });
+
+        table.columns().every(function () {
+            var that = this;
+
+            $('input', this.footer()).on('keyup change', function () {
+                if (that.search() !== this.value) {
+                    that
+                        .search(this.value)
+                        .draw();
+                }
+            });
+        });
+
+
+    });
+
+
+</script>
+
+
+<section class="content-header">
+    <h1 class="headingfont">Customer Detail</h1>
+
+</section>
+<p class="indexbtnpadding">
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary btnwidth" })
+</p>
+<section class="content">
+    @if (ViewBag.SuccessMsg != null)
+    {
+        <script type="text/javascript">
+         $(document).ready(function () {
+             $.notify("@ViewBag.SuccessMsg ", "success");
+         });
+        </script>
+    }
+    <div class="table-responsive tblbackground" style="padding:15px">
+        <table class="table table-responsive table-bordered tblfont" id="dataTables-example">
+            <thead>
+                <tr>
+
+                    <th>
+                        @Html.Label("Company Name")
+                    </th>
+                    <th>
+                        @Html.Label("Address")
+                    </th>
+                    <th>
+                        @Html.Label("Primary Contact Number")
+                    </th>
+                    <th>
+                        @Html.Label("Secondary Contact Number")
+                    </th>
+                    <th>
+                        @Html.Label("Email")
+                    </th>
+                    <th>
+                        @Html.Label("Balance")
+                    </th>
+
+                    <th>
+                        @Html.Label("GST")
+                    </th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tfoot>
+                <tr>
+
+                    <th>
+                        @Html.Label("Company Name")
+                    </th>
+                    <th>
+                        @Html.Label("Adress")
+                    </th>
+                    <th>
+                        @Html.Label("Primary Contact Number")
+                    </th>
+                    <th>
+                        @Html.Label("Secondary Contact Number")
+                    </th>
+                    <th>
+                        @Html.Label("Email")
+                    </th>
+                    <th>
+                        @Html.Label("Balance")
+                    </th>
+
+                    <th>
+                        @Html.Label("GST")
+                    </th>
+                    <th>Action</th>
+                </tr>
+
+            </tfoot>
+
+
+            <tbody>
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td class="tdtarget">
+                                @Html.DisplayFor(modelItem => item.companyName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.address)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.contact_Num_1)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.contact_Num_2)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.openingBalance)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.gst)
+                            </td>
+
+                            <td>
+
+                                <a href="@Url.Action("Edit", new { id = item.cust_id })"><i class="fa fa-pencil"></i></a> |
+
+                                <a href="#" onclick="Delete(ID=@item.cust_id)"><i class="fa fa-times"></i></a>
+
+                            </td>
+                        </tr>
+                    }
+                }
+                <//tbody>
+        </table>
+    </div>
+</section>
+
+
+<script type="text/javascript">
+    function Delete(ID) {
+        if (confirm("Are you sure, You want to Delete Record?")) {
+            window.location.href = "/Customer/DeleteConfirmed/?id=" + ID;
+        }
+    }
+</script>

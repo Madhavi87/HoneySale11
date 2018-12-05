@@ -1,0 +1,393 @@
+﻿@model HoneySaleDAL.DeliveryDetail
+@{
+    ViewBag.Title = "Create delivery detail";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#phoneNum").hide();
+        $("#cylinder_Id").on('change', function () {
+             var t = $(this).val();
+             if (t !== "") {
+                 $.post("@Url.Action("GetAmount", "DeliveryDetail")?val=" + t, function(res) {
+                     if (res.Success === "true") {
+
+                         //enable the text boxes and set the value
+
+                         $("input[name = 'cylinderAmount']").val(res.Data.amount);
+                         var filledCylinder = parseFloat($("[id*=filledCylinder]").val());
+                         var cylinderAmount = parseFloat($("[id*=cylinderAmount]").val());
+                         $("[id*=totalAmount]").val(cylinderAmount);
+                         if ($("[id*=filledCylinder]").val() == "") {
+                             $("[id*=filledCylinder]").val("0");
+                             filledCylinder = parseFloat($("[id*=filledCylinder]").val("0"));
+                             //var total = parseFloat(filledCylinder * cylinderAmount);
+                             $("[id*=totalAmount]").val(0);
+                         }
+                         else {
+                             var total = parseFloat(filledCylinder * cylinderAmount);
+                             $("[id*=totalAmount]").val(total);
+                         }
+
+
+                         if ($("[id*=totalAmount]").val() != "" && $("[id*=paidAmount]").val() != "") {
+                             var totalAmount = parseFloat($("[id*=totalAmount]").val());
+                             var paidAmount = parseFloat($("[id*=paidAmount]").val());
+                             var balancedAmount = parseFloat(totalAmount - paidAmount);
+                             $("[id*=balanceAmount]").val(balancedAmount);
+
+
+                         } else {
+                             alert("Error getting data!");
+                         }
+                     }
+                     else {
+                         alert("Error getting data!");
+                     }
+                });
+            }
+        });
+
+        if ($("#cust_id").val() == "1") {
+            if ($("#phone").val() == "") {
+                $("#phoneNum").show();
+                $("#phoneErr").show();
+                return false;
+            }
+            else {
+
+               $("#phoneNum").show(); $("#phoneErr").hide();
+            }
+        }
+
+        $("#phone").keyup(function () {
+            $("#phoneErr").hide();
+        });
+
+        $("#invoiceCheck").on('change', function () {
+            if ($(this).prop("checked") == false) {
+                $("#voucherNo").val("LPG-0000");
+                // $("#customer").prop("autocomplete", false);
+                $("#CustomerDetail_companyName").val("Other");
+                $("#cust_id").val(1);
+                $("#phoneNum").show();
+            }
+            else if ($(this).prop("checked") == true) {
+                var str = '@ViewBag.VoucherNo';
+                $("#phoneNum").hide();
+                $("#voucherNo").val(str);
+                $("#CustomerDetail_companyName").prop("disabled", false);
+
+            }
+        });
+
+
+        $("#cust_id").on('change', function () {
+            var t= $(this).val();
+            $.ajax({
+                   url: '@Url.Action("GetCylinder", "DeliveryDetail")',
+                   data: JSON.stringify({ cust_id: t }),
+                   dataType: "json",
+                   type: "POST",
+                   contentType: "application/json; charset=utf-8",
+                   success: function (data) {
+                       var markup = "<option value='0'>--Select--</option>";
+                       for (var x = 0; x < data.length; x++) {
+                           markup += "<option value=" + data[x].Value + ">" + data[x].Text + "</option>";
+                       }
+                       $("#cylinder_Id").html(markup).show();
+                   },
+                   error: function (response) {
+                       alert(response.responseText);
+                   },
+                   failure: function (response) {
+                       alert(response.responseText);
+                   }
+               });
+          });
+
+        $('#C_deliveryDate').val("");
+        $('#C_deliveryDate').datepicker({
+            dateFormat: 'dd-M-yy',
+            changeYear: true, changeMonth: true,
+        });
+
+        //To calculate total
+        $("#filledCylinder").keyup(function () {
+            if ($("[id*=filledCylinder]").val() == "") {
+                $("[id*=filledCylinder]").val("0");
+            }
+            else if ($("[id*=cylinderAmount]").val() == "") {
+                $("[id*=cylinderAmount]").val("0");
+            }
+            else if ($("[id*=filledCylinder]").val() != "") {
+                var filledCylinder = parseFloat($("[id*=filledCylinder]").val());
+                var cylinderAmount = parseFloat($("[id*=cylinderAmount]").val());
+            }
+            else {
+                $("[id*=filledCylinder]").val("0");
+                $("[id*=cylinderAmount]").val("0");
+            }
+                var total = parseFloat(filledCylinder * cylinderAmount);
+
+                $("[id*=totalAmount]").val(total);
+                $("[id*=balanceAmount]").val(total);
+        });
+
+        //To calculate Balanced amount
+        $("#paidAmount").keyup(function () {
+            if ($("[id*=totalAmount]").val() != "" && $("[id*=paidAmount]").val() != "") {
+                var totalAmount = parseFloat($("[id*=totalAmount]").val());
+                var paidAmount = parseFloat($("[id*=paidAmount]").val());
+                var balancedAmount = parseFloat(totalAmount - paidAmount);
+                $("[id*=balanceAmount]").val(balancedAmount);
+
+            }
+        });
+
+        //button click
+
+        $('#btnsave').click(function () {
+
+            if ($("#CustomerDetail_companyName").val() == "Other") {
+                if ($("#phone").val() == "") { $("#phoneErr").show(); return false; }
+                else { $("#phoneErr").hide(); }
+            }
+
+            var t = $("#userid").val();
+            var dt = $("#C_deliveryDate").val();
+            var ctype = $("#cylinder_Id").val();
+            var flag = false;
+
+          //  $.post("@Url.Action("GetLoadCount", "DeliveryDetail")?val=" + t + '&date=' + dt + '&Ctype=' + ctype, function (res) {
+
+               // if (res.Success === "true")
+        if(true)
+        {
+            flag = true;
+                    //if ($("#filledCylinder").val() != "" && ($("#emptyCylinder").val() != "" && $("#replacementCylinder").val() != "")) {
+                    //    if (res.Data.LoadfilledCylinder >= res.Data.DeliveryfilledCylinder && (res.Data.UnloadEmptyCylinder >= res.Data.DeliveryEmptyCylinder && res.Data.UnloadRejectedCylinder >= res.Data.DeliveryReplaceCylinder)) {
+
+                    //        flag = true;
+                    //    }
+                    //}
+                    //else if ($("#filledCylinder").val() != "" && ($("#emptyCylinder").val() == "" && $("#replacementCylinder").val() == "") )
+                    //{
+                    //    if (res.Data.LoadfilledCylinder >= res.Data.DeliveryfilledCylinder ){
+                    //        flag =true;
+                    //    }
+                    //}
+                    //else if ($("#filledCylinder").val() == "" && ($("#emptyCylinder").val() != "" && $("#replacementCylinder").val() != ""))
+                    //{
+                    //    if (res.Data.UnloadEmptyCylinder >= res.Data.DeliveryEmptyCylinder && res.Data.UnloadRejectedCylinder >= res.Data.DeliveryReplaceCylinder) {
+
+                    //        flag = true;
+                    //    }
+
+                    //}
+                    //else if ($("#emptyCylinder").val() != "" && ($("#filledCylinder").val() == "" || $("#replacementCylinder").val() == "")){
+
+                    //    if (res.Data.UnloadEmptyCylinder >= res.Data.DeliveryEmptyCylinder){
+                    //        flag = true;
+                    //    }
+                    //}
+
+                    //else {
+                    //    flag = false;
+
+                    //    alert("You check filled cylinders , empty  and replcae cylinders");
+                    //}
+
+                    if (flag == true){
+
+                        var data = {
+                            invoiceCheck: $('#invoiceCheck').val().trim(),
+                            voucherNo: $('#voucherNo').val().trim(),
+                            cust_id: $('#cust_id').val().trim(),
+                            phone: $('#phone').val().trim(),
+                            C_deliveryDate: $('#C_deliveryDate').val().trim(),
+                            userid: $('#userid').val().trim(),
+                            cylinder_Id: $('#cylinder_Id').val().trim(),
+                            cylinderAmount: $('#cylinderAmount').val().trim(),
+                            emptyCylinder: $('#emptyCylinder').val().trim(),
+                            filledCylinder: $('#filledCylinder').val().trim(),
+                            replacementCylinder: $('#replacementCylinder').val().trim(),
+                            totalAmount: $('#totalAmount').val().trim(),
+                            paidAmount: $('#paidAmount').val().trim(),
+                            balanceAmount: $('#balanceAmount').val().trim(),
+                        }
+
+                        $.ajax({
+                            url: '@Url.Action("Create", "DeliveryDetail")',
+                            type: "POST",
+                            data: JSON.stringify(data),
+                            dataType: "JSON",
+                            contentType: "application/json",
+                            success: function (d) {
+
+                                if (d.status == true) {
+                                    $.notify(d.Message, "success");
+
+                                    var url = '@Url.Action("Listing", "DeliveryDetail")';
+                                    window.location.href = url;
+                                }
+                                else {
+                                    $.notify(d.Message, "error");
+                                    return false;
+
+                                }
+
+                            },//success
+                            error: function () {
+                                $.notify("Error. Please try again.", "error");
+
+                                return false;
+                            }
+                        });//$.ajax
+                    }// flag true
+
+
+
+                }//res success
+                else{ alert("Something went wrong");}
+
+           // });//post
+        });//Save button click
+
+    });
+</script>
+
+
+
+
+
+<section class="content-header">
+    <h1 class="headingfont">Delivery Details</h1>
+
+</section>
+@if (ViewBag.SuccessMsg != null)
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.notify("@ViewBag.SuccessMsg", "success");
+
+
+        });
+
+
+    </script>
+}
+
+<section class="content">
+
+    @* @using (Html.BeginForm())
+        {*@
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div id="alert" style="color: red; display: none; margin-left: 10px;">*Please fill mandatory fields</div>
+    <fieldset>
+
+        <div class="row no-margin">
+            <div class="col-md-3">
+                @Html.CheckBoxFor(model => model.invoiceCheck)
+                <label class="headinglabel">
+                    &nbsp; Do you want invoice copy
+                </label>
+            </div>
+        </div>
+        <div class="row no-margin">
+            <div class="col-md-3">
+                <label class="required headinglabel">Voucher No. </label>
+                @Html.TextBoxFor(model => model.voucherNo, new { Value = (string)ViewBag.VoucherNo, @class = "form-control txttarget", @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.voucherNo)
+
+            </div>
+            <div class="col-md-3">
+                <label class="required headinglabel">Customer </label>
+                @Html.DropDownListFor(model => model.cust_id, new SelectList(Model.customers, "cust_id", "companyName"), "-select-", new { @class = "form-control txttarget" })
+                @Html.ValidationMessageFor(model => model.cust_id)
+                <div style="padding-top:10px"> </div>
+
+            </div>
+            <div class="col-md-3" id="phoneNum">
+                <label class="required headinglabel">Phone</label>
+                @Html.TextBoxFor(model => model.phone, new { @class = "form-control" })
+                <div id="phoneErr" style="color:red">Please enter phone number</div>
+            </div>
+            <div class="col-md-3">
+                <label class="required headinglabel">Delivery Date</label>
+                @Html.TextBoxFor(model => model.C_deliveryDate, new { @class = "form-control txttarget", @autocomplete = "off" })
+                @Html.ValidationMessageFor(model => model.C_deliveryDate)
+
+            </div>
+            <div class="col-md-3">
+                <label class="required headinglabel">User </label>
+                @Html.DropDownListFor(model => model.userid, new SelectList(Model.users, "ID", "username"), "", new { @class = "form-control txttarget" })
+                @Html.HiddenFor(model => model.username)
+                @Html.ValidationMessageFor(model => model.userid)
+
+            </div>
+        </div>
+        <div class="row no-margin" style="padding-top: 10px">
+
+            <div style="padding-top:10px"> </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Cylinder Type</label>
+
+                @Html.DropDownListFor(model => model.cylinder_Id, Enumerable.Empty<SelectListItem>(), "--Select--", new { @class = "form-control" })
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Cylinder Amount</label>
+                @Html.TextBoxFor(model => model.cylinderAmount, new { @class = "form-control" });
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Empty Cylinders</label>
+                @Html.TextBoxFor(model => model.emptyCylinder, new { @class = "form-control" })
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Filled Cylinders</label>
+                @Html.TextBoxFor(model => model.filledCylinder, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row no-margin">
+            <div class="col-md-3">
+                <label class="headinglabel">Replace Cylinders</label>
+                @Html.TextBoxFor(model => model.replacementCylinder, new { @class = "form-control" })
+            </div>
+
+            <div class="col-md-3">
+                <label class="headinglabel">Total Amount</label>
+                @Html.TextBoxFor(model => model.totalAmount, new { @class = "form-control" })
+
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Paid Amount</label>
+                @Html.TextBoxFor(model => model.paidAmount, new { @class = "form-control" })
+            </div>
+
+        </div>
+        <div class="row no-margin" style="padding-top: 10px">
+            <div class="col-md-3">
+                <label class="headinglabel">Balanced Amount</label>
+                @Html.TextBoxFor(model => model.balanceAmount, new { @class = "form-control" })
+            </div>
+
+        </div>
+        <div class="row no-margin" style="padding-top: 10px">
+            <div class="col-md-12">
+
+                <input type="button" value="Save" class="btn btn-primary btnwidth" id="btnsave" />
+
+                &nbsp;
+                <a href='@Url.Action("Listing", "DeliveryDetail", new { id = 0 })' class="btn btn-primary btnwidth" data-toggle="tooltip" data-placement="right" title="Click here">Cancel</a>
+
+            </div>
+        </div>
+
+
+    </fieldset>
+    @*   }*@
+</section>

@@ -1,0 +1,123 @@
+﻿@model IEnumerable<HoneySaleDAL.CustomerCylinderDetail>
+@{
+    ViewBag.Title = "Customer Listing";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+ <style>
+     tfoot
+     {
+         display: table-header-group;
+     }
+ </style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+
+        $('#dataTables-example tfoot th').each(function () {
+            var title = $(this).text();
+            $(this).html('<input type="text" />');
+        });
+
+
+        var table = $('#dataTables-example').DataTable({ "sPaginationType": "full_numbers" });
+
+        table.columns().every(function () {
+            var that = this;
+
+            $('input', this.footer()).on('keyup change', function () {
+                if (that.search() !== this.value) {
+                    that
+                        .search(this.value)
+                        .draw();
+                }
+            });
+        });
+
+
+    });
+
+
+</script>
+
+
+<section class="content-header">
+    <h1 class="headingfont">Customer Detail</h1>
+
+</section>
+<section class="content">
+
+    <div class="row no-margin" style="margin-bottom:5px !important;">
+        @using (Html.BeginForm("CustomerCylinderReport", "Customer", FormMethod.Post))
+        {
+
+            <div class="col-md-3">
+                <label class="headinglabel">Customer</label>
+
+                @Html.DropDownList("CustomerNames", @ViewBag.CustomerNames as SelectList, "", new { @class = "form-control txttarget" })
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel"> </label>
+                <input type="submit" value="Go" id="go" class="btn btn-default" style="margin-top:22px" />
+            </div>
+        }
+    </div>
+    @if (ViewBag.SuccessMsg != null)
+    {
+        <script type="text/javascript">
+         $(document).ready(function () {
+             $.notify("@ViewBag.SuccessMsg ", "success");
+         });
+        </script>
+    }
+    <div class="table-responsive tblbackground" style="padding:15px">
+        <table class="table table-responsive table-bordered tblfont" id="dataTables-example">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.Label("Cylinder Type")
+                    </th>
+                    <th>
+                        @Html.Label("No of count")
+                    </th>
+                </tr>
+            </thead>
+
+            <tfoot>
+                <tr>
+                    <th>
+                        @Html.Label("Cylinder Type")
+                    </th>
+                    <th>
+                        @Html.Label("No of count")
+                    </th>
+                </tr>
+
+            </tfoot>
+
+
+            <tbody>
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.cylinderType)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.totalCylinder)
+                            </td>
+
+
+                        </tr>
+                    }
+                }
+                <//tbody>
+        </table>
+    </div>
+</section>
+

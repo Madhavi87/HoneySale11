@@ -1,0 +1,266 @@
+﻿@model HoneySaleDAL.LoadCylinder
+@{
+    ViewBag.Title = "Load Cylinder";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+
+<script type="text/javascript">
+    var cylinderItems = [];
+
+    $(document).ready(function () {
+        $("#user_id").on('change', function () {
+            var t = $("#user_id option:selected").text();
+            $("#userName").val(t);
+        });
+
+        $('#loadDate').datepicker({
+            dateFormat: 'dd-M-yy',
+            changeYear: true, changeMonth: true,
+        });
+
+        $("#item_cylinder_Id").on('change', function () {
+            var t = $(this).val();
+            $("input[name = 'item.cylinderType']").val($("#item_cylinder_Id option:selected").text());
+
+        });
+
+        // (jQuery Data Table)
+        $('#tbl').dataTable({
+            "sDom": 'T<"clear">lfrtip',
+            "oTableTools": {
+                "aButtons": [],
+                "sRowSelect": "single"
+            },
+            "bLengthChange": false,
+            "bFilter": false,
+            "bSort": false,
+            "bInfo": false,
+            "bPaginate": false
+        });
+
+
+        var oTable = $('#tbl').dataTable();
+        //Delete Row
+        oTable.delegate(".remove", "click", function () {
+            var iPos = oTable.fnGetPosition($(this).parent().parent()[0]);
+            // alert(iPos);
+            if (iPos !== null && iPos > 0) {
+                oTable.fnDeleteRow(iPos);//delete row
+            }
+        });
+        //Save table
+        $('#btnsave').click(function () {
+            if (oTable.fnGetData().length > 1) {
+
+            var data = {
+                user_id: $('#user_id').val().trim(),
+                userName: $('#userName').val().trim(),
+                loadDate: $('#loadDate').val().trim(),
+                LoadDetailForEdit: cylinderItems
+            }
+
+            $.ajax({
+                url: '@Url.Action("Edit", "Load")',
+                type: "POST",
+                data: JSON.stringify(data),
+                dataType: "JSON",
+                contentType: "application/json",
+                success: function (d) {
+
+                   if (d.status == true) {
+                                $.notify(d.Message, "success");
+
+                                var url = '@Url.Action("Listing", "Load")';
+                                window.location.href = url;
+                            }
+                            else {
+                                $.notify(d.Message, "error");
+                                return false;
+
+                            }
+
+                        },
+                        error: function () {
+                            $.notify( "Error. Please try again.","error");
+
+                            return false;
+                        }
+            });
+        }
+            else {
+                $.notify("Add atleast  one record", "error");
+
+            $('#item_cylinder_Id').focus();
+            return false;
+        }
+      });
+    });
+    //Add Row
+    function Add() {
+        if ($('#item_cylinder_Id').val() == "") {
+            alert("Please select the cylinder Type");
+            $('#item_cylinder_Id').focus();
+            return false;
+        }
+        else if ($('#item_FilledCylinder').val() == "") {
+            alert("Please enter no. of filled cylinder");
+            $('#item_FilledCylinder').focus();
+            return false;
+        }
+        else {
+            // Adding item to table
+            if ($('#item_cylinder_Id').val() != "" || $('#item_FilledCylinder').val() != "") {
+                $('#tbl').dataTable().fnAddData([$('#item_cylinderType').val(), $('#item_FilledCylinder').val(), '<a href="#" class="remove">Remove</a>']);
+                cylinderItems.push({
+                    cylinder_Id: $('#item_cylinder_Id').val().trim(),
+                    cylinderType: $('#item_cylinderType').val().trim(),
+                    FilledCylinder: parseInt($('#item_FilledCylinder').val().trim()),
+
+                });
+                // Making Editable text empty
+                $('#item_cylinder_Id').val("")
+                $('#item_FilledCylinder').val("")
+
+            }
+        }
+    }
+</script>
+
+<section class="content-header">
+    <h1 class="headingfont">Load Cylinder Details</h1>
+
+</section>
+@if (ViewBag.SuccessMsg != null)
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.notify("@ViewBag.SuccessMsg", "success");
+        });
+    </script>
+}
+
+<section class="content">
+    @*@using (Html.BeginForm())
+        {*@
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div id="alert" style="color: red; display: none; margin-left: 10px;">*Please fill mandatory fields</div>
+    <fieldset>
+
+        <div class="row no-margin">
+
+            <div class="col-md-3">
+                <label class="required headinglabel">User Name</label>
+                @Html.DropDownListFor(model => model.user_id, new SelectList(Model.users, "ID", "username"), "", new { @class = "form-control txttarget",@disabled="disabled", @readonly = "readonly" })
+                @Html.HiddenFor(model => model.userName)
+                @Html.ValidationMessageFor(model => model.user_id)
+
+            </div>
+            <div class="col-md-3">
+                <label class="headinglabel">Load Date </label>
+                @Html.TextBoxFor(model => model.loadDate, new { @class = "form-control", @autocomplete = "off", @readonly = "readonly", @disabled = "disabled", })
+                @Html.ValidationMessageFor(model => model.loadDate)
+
+            </div>
+        </div>
+        <div class="row no-margin" style="padding-top: 10px"></div>
+        <div class="table-responsive tblbackground">
+            <table class="table table-responsive table-bordered tblfont" id="tbl">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.Label("Cylinder Type")
+                        </th>
+                        <th>
+                            @Html.Label("No of Filled Cylinder")
+                        </th>
+                        <th></th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @*@if (@Model != null)
+                    {
+                        foreach (var item in @Model.LoadDetailForEdit)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DropDownListFor(modelItem => item.cylinder_Id, new SelectList(Model.cylinders, "ID", "cylinderType"), "-select-", new { @class = "form-control" })
+                                    @Html.HiddenFor(modelItem => item.cylinderType)
+                                </td>
+                                <td>
+                                    @Html.TextBoxFor(modelItem => item.FilledCylinder, new { @class = "form-control",@readonly="readonly" })
+                                </td>
+                                <td></td>
+                            </tr>
+
+                        }
+                    }*@
+                    @if (@Model != null)
+                    {
+                        foreach (var item in @Model.LoadDetail)
+                        {
+                            <tr>
+                                <td>
+
+                                    @Html.DisplayFor(modelItem => item.cylinderType)
+                                </td>
+                                <td>
+
+                                    @Html.DisplayFor(modelItem => item.FilledCylinder)
+                                </td>
+                                <td>
+                                    @*<a href="#" onclick="Delete(ID=@item.ID)" class="remove">Remove</a>*@
+                                </td>
+
+                            </tr>
+
+                        }
+                    }
+
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td colspan="3">
+                            @*<input class="btnAdd btn btn-default" type="button" name="name" value="Add" onclick="javascript: Add()" />*@
+                        </td>
+
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+
+        <div class="row no-margin" style="padding-top: 10px">
+            <div class="col-md-12">
+
+                @*<input type="button" value="Save" class="btn btn-primary btnwidth" id="btnsave" />*@
+
+                &nbsp;
+                <a href='@Url.Action("Listing", "Load")' class="btn btn-primary btnwidth" data-toggle="tooltip" data-placement="right" title="Click here">Cancel</a>
+
+            </div>
+        </div>
+
+
+    </fieldset>
+    @*}*@
+</section>
+<script type="text/javascript">
+    function Delete(ID) {
+        if (confirm("Are you sure, You want to Delete Record?")) {
+            $.post("@Url.Action("DeleteDetail", "Load")?val=" + ID, function (res) {
+                if (res.Success === "true") {
+
+                    $('#tbl').dataTable().fnDraw();
+
+                } else {
+                    alert("Error getting data!");
+                }
+            });
+        }
+    }
+</script>

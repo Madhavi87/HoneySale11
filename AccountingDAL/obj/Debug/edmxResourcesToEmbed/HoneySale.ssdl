@@ -1,0 +1,532 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="honeysaleModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="honeysaleModelStoreContainer">
+    <EntitySet Name="CustomerCylinderDetail" EntityType="honeysaleModel.Store.CustomerCylinderDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CustomerDetail" EntityType="honeysaleModel.Store.CustomerDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CustomerPaymentDetails" EntityType="honeysaleModel.Store.CustomerPaymentDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CylinderMaster" EntityType="honeysaleModel.Store.CylinderMaster" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DeliveryDetail" EntityType="honeysaleModel.Store.DeliveryDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LiveCylinderDetail" EntityType="honeysaleModel.Store.LiveCylinderDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LoadCylinder" EntityType="honeysaleModel.Store.LoadCylinder" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LoadDetail" EntityType="honeysaleModel.Store.LoadDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PurchaseCylinder" EntityType="honeysaleModel.Store.PurchaseCylinder" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PurchaseDetail" EntityType="honeysaleModel.Store.PurchaseDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ReturnCylinder" EntityType="honeysaleModel.Store.ReturnCylinder" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ReturnDetail" EntityType="honeysaleModel.Store.ReturnDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StaffPayment" EntityType="honeysaleModel.Store.StaffPayment" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tblrole" EntityType="honeysaleModel.Store.tblrole" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbluser" EntityType="honeysaleModel.Store.tbluser" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UnloadCylinder" EntityType="honeysaleModel.Store.UnloadCylinder" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UnloadDetail" EntityType="honeysaleModel.Store.UnloadDetail" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_CustCylinderDetail" Association="honeysaleModel.Store.FK_CustCylinderDetail">
+      <End Role="CylinderMaster" EntitySet="CylinderMaster" />
+      <End Role="CustomerCylinderDetail" EntitySet="CustomerCylinderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer" Association="honeysaleModel.Store.FK_Customer">
+      <End Role="CustomerDetail" EntitySet="CustomerDetail" />
+      <End Role="DeliveryDetail" EntitySet="DeliveryDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerCylinder" Association="honeysaleModel.Store.FK_CustomerCylinder">
+      <End Role="CustomerDetail" EntitySet="CustomerDetail" />
+      <End Role="CustomerCylinderDetail" EntitySet="CustomerCylinderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cylinder" Association="honeysaleModel.Store.FK_Cylinder">
+      <End Role="CylinderMaster" EntitySet="CylinderMaster" />
+      <End Role="DeliveryDetail" EntitySet="DeliveryDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CylinderID" Association="honeysaleModel.Store.FK_CylinderID">
+      <End Role="CylinderMaster" EntitySet="CylinderMaster" />
+      <End Role="PurchaseDetail" EntitySet="PurchaseDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CylinderReturnDetail" Association="honeysaleModel.Store.FK_CylinderReturnDetail">
+      <End Role="CylinderMaster" EntitySet="CylinderMaster" />
+      <End Role="ReturnDetail" EntitySet="ReturnDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeliveryDetail_tbluser" Association="honeysaleModel.Store.FK_DeliveryDetail_tbluser">
+      <End Role="tbluser" EntitySet="tbluser" />
+      <End Role="DeliveryDetail" EntitySet="DeliveryDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoadCylinder" Association="honeysaleModel.Store.FK_LoadCylinder">
+      <End Role="tbluser" EntitySet="tbluser" />
+      <End Role="LoadCylinder" EntitySet="LoadCylinder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_loadDetail" Association="honeysaleModel.Store.FK_loadDetail">
+      <End Role="LoadCylinder" EntitySet="LoadCylinder" />
+      <End Role="LoadDetail" EntitySet="LoadDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoadDetailCylinder" Association="honeysaleModel.Store.FK_LoadDetailCylinder">
+      <End Role="CylinderMaster" EntitySet="CylinderMaster" />
+      <End Role="LoadDetail" EntitySet="LoadDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PaymentCust_ID" Association="honeysaleModel.Store.FK_PaymentCust_ID">
+      <End Role="CustomerDetail" EntitySet="CustomerDetail" />
+      <End Role="CustomerPaymentDetails" EntitySet="CustomerPaymentDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase" Association="honeysaleModel.Store.FK_Purchase">
+      <End Role="PurchaseCylinder" EntitySet="PurchaseCylinder" />
+      <End Role="PurchaseDetail" EntitySet="PurchaseDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ReturnDetail" Association="honeysaleModel.Store.FK_ReturnDetail">
+      <End Role="ReturnCylinder" EntitySet="ReturnCylinder" />
+      <End Role="ReturnDetail" EntitySet="ReturnDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staff_ID" Association="honeysaleModel.Store.FK_Staff_ID">
+      <End Role="tbluser" EntitySet="tbluser" />
+      <End Role="StaffPayment" EntitySet="StaffPayment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UnloadDetailCylinder" Association="honeysaleModel.Store.FK_UnloadDetailCylinder">
+      <End Role="CylinderMaster" EntitySet="CylinderMaster" />
+      <End Role="UnloadDetail" EntitySet="UnloadDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Unloads" Association="honeysaleModel.Store.FK_Unloads">
+      <End Role="tbluser" EntitySet="tbluser" />
+      <End Role="UnloadCylinder" EntitySet="UnloadCylinder" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UnnloadDetial" Association="honeysaleModel.Store.FK_UnnloadDetial">
+      <End Role="UnloadCylinder" EntitySet="UnloadCylinder" />
+      <End Role="UnloadDetail" EntitySet="UnloadDetail" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CustomerCylinderDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="cylinderType" Type="varchar" MaxLength="50" />
+    <Property Name="totalCylinder" Type="int" />
+    <Property Name="cust_id" Type="int" />
+    <Property Name="discount" Type="nvarchar" MaxLength="50" />
+    <Property Name="cylinder_Id" Type="int" />
+    <Property Name="openingCylinder" Type="int" />
+  </EntityType>
+  <EntityType Name="CustomerDetail">
+    <Key>
+      <PropertyRef Name="cust_id" />
+    </Key>
+    <Property Name="companyName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="address" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="contact_Num_1" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="contact_Num_2" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" />
+    <Property Name="gst" Type="nvarchar" MaxLength="50" />
+    <Property Name="discount" Type="nvarchar" MaxLength="50" />
+    <Property Name="cust_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="openingBalance" Type="money" />
+    <Property Name="balanceAmount" Type="money" />
+  </EntityType>
+  <EntityType Name="CustomerPaymentDetails">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="cust_Id" Type="int" Nullable="false" />
+    <Property Name="balanceAmount" Type="decimal" />
+    <Property Name="PaidAmount" Type="decimal" />
+    <Property Name="date" Type="datetime" />
+    <Property Name="received" Type="nvarchar" MaxLength="50" />
+    <Property Name="remark" Type="nvarchar" MaxLength="50" />
+    <Property Name="createdBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="signature" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="CylinderMaster">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="cylinderType" Type="varchar" MaxLength="50" />
+    <Property Name="amount" Type="money" />
+    <Property Name="openingFilled" Type="int" />
+    <Property Name="openingEmpty" Type="int" />
+    <Property Name="openingReplace" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="ModifiedOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DeliveryDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name=" deliveryDate" Type="date" Nullable="false" />
+    <Property Name="voucherNo" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="cylinderAmount" Type="money" />
+    <Property Name="filledCylinder" Type="int" />
+    <Property Name="emptyCylinder" Type="int" />
+    <Property Name="totalAmount" Type="money" Nullable="false" />
+    <Property Name="paidAmount" Type="money" Nullable="false" />
+    <Property Name="balanceAmount" Type="money" />
+    <Property Name="cust_id" Type="int" Nullable="false" />
+    <Property Name="cylinder_Id" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Custsignature" Type="nvarchar" MaxLength="50" />
+    <Property Name="phone" Type="varchar" MaxLength="50" />
+    <Property Name="signature" Type="varbinary(max)" />
+    <Property Name="userid" Type="int" />
+    <Property Name="cgst" Type="decimal" />
+    <Property Name="sgst" Type="decimal" />
+    <Property Name="username" Type="nvarchar" MaxLength="150" />
+    <Property Name="replacementCylinder" Type="int" />
+    <Property Name="unload_Flag" Type="bit" />
+  </EntityType>
+  <EntityType Name="LiveCylinderDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="cylinder_Id" Type="int" />
+    <Property Name="FilledCylinderCount" Type="int" />
+    <Property Name="EmptyCylinderCount" Type="int" />
+    <Property Name="ReplacementCylinderCount" Type="int" />
+  </EntityType>
+  <EntityType Name="LoadCylinder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="loadDate" Type="datetime" />
+    <Property Name="createdBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="createdOn" Type="datetime" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="userName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LoadDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="cylinderType" Type="varchar" MaxLength="50" />
+    <Property Name="cylinder_Id" Type="int" />
+    <Property Name="load_Id" Type="int" />
+    <Property Name="FilledCylinder" Type="int" />
+  </EntityType>
+  <EntityType Name="PurchaseCylinder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="dealerName" Type="varchar" MaxLength="50" />
+    <Property Name="BillNo" Type="varchar" MaxLength="50" />
+    <Property Name="purchaseDate" Type="datetime" />
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="amount" Type="money" />
+  </EntityType>
+  <EntityType Name="PurchaseDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="cylinderType" Type="varchar" MaxLength="50" />
+    <Property Name="cylinder_Id" Type="int" />
+    <Property Name="purchase_Id" Type="int" />
+    <Property Name="FilledCylinder" Type="int" />
+  </EntityType>
+  <EntityType Name="ReturnCylinder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="dealerName" Type="varchar" MaxLength="50" />
+    <Property Name="emptyCylinder" Type="int" />
+    <Property Name="returnDate" Type="datetime" />
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ERVNo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ReturnDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="cylinderType" Type="varchar" MaxLength="50" />
+    <Property Name="cylinder_Id" Type="int" />
+    <Property Name="return_Id" Type="int" />
+    <Property Name="FilledCylinder" Type="int" />
+    <Property Name="EmptyCylinder" Type="int" />
+    <Property Name="RejectedCylinder" Type="int" />
+  </EntityType>
+  <EntityType Name="StaffPayment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Staff _ID" Type="int" />
+    <Property Name="Balance_Amount" Type="decimal" />
+    <Property Name="Return_Amount" Type="decimal" />
+    <Property Name="Return_Date" Type="datetime" />
+    <Property Name="Received_On" Type="datetime" />
+    <Property Name="Received_By" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tblrole">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="roleid" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="roleid" Type="int" Nullable="false" />
+    <Property Name="rolename" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbluser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="firstname" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="lastname" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="username" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="passwordHash" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="salt" Type="uniqueidentifier" />
+    <Property Name="role_id" Type="int" />
+    <Property Name="phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="isActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UnloadCylinder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="EmptyCylinder" Type="int" Nullable="false" />
+    <Property Name="UnloadDate" Type="datetime" />
+    <Property Name="createdBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="createdOn" Type="datetime" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="userName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DeliveryFlag" Type="bit" />
+  </EntityType>
+  <EntityType Name="UnloadDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="cylinderType" Type="varchar" MaxLength="50" />
+    <Property Name="cylinder_Id" Type="int" />
+    <Property Name="unload_Id" Type="int" />
+    <Property Name="EmptyCylinder" Type="int" />
+    <Property Name="FilledCylinder" Type="int" />
+    <Property Name="RejectedCylinder" Type="int" />
+  </EntityType>
+  <Association Name="FK_CustCylinderDetail">
+    <End Role="CylinderMaster" Type="honeysaleModel.Store.CylinderMaster" Multiplicity="0..1" />
+    <End Role="CustomerCylinderDetail" Type="honeysaleModel.Store.CustomerCylinderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CylinderMaster">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CustomerCylinderDetail">
+        <PropertyRef Name="cylinder_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer">
+    <End Role="CustomerDetail" Type="honeysaleModel.Store.CustomerDetail" Multiplicity="1" />
+    <End Role="DeliveryDetail" Type="honeysaleModel.Store.DeliveryDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerDetail">
+        <PropertyRef Name="cust_id" />
+      </Principal>
+      <Dependent Role="DeliveryDetail">
+        <PropertyRef Name="cust_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerCylinder">
+    <End Role="CustomerDetail" Type="honeysaleModel.Store.CustomerDetail" Multiplicity="0..1" />
+    <End Role="CustomerCylinderDetail" Type="honeysaleModel.Store.CustomerCylinderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerDetail">
+        <PropertyRef Name="cust_id" />
+      </Principal>
+      <Dependent Role="CustomerCylinderDetail">
+        <PropertyRef Name="cust_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cylinder">
+    <End Role="CylinderMaster" Type="honeysaleModel.Store.CylinderMaster" Multiplicity="1" />
+    <End Role="DeliveryDetail" Type="honeysaleModel.Store.DeliveryDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CylinderMaster">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DeliveryDetail">
+        <PropertyRef Name="cylinder_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CylinderID">
+    <End Role="CylinderMaster" Type="honeysaleModel.Store.CylinderMaster" Multiplicity="0..1" />
+    <End Role="PurchaseDetail" Type="honeysaleModel.Store.PurchaseDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CylinderMaster">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PurchaseDetail">
+        <PropertyRef Name="cylinder_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CylinderReturnDetail">
+    <End Role="CylinderMaster" Type="honeysaleModel.Store.CylinderMaster" Multiplicity="0..1" />
+    <End Role="ReturnDetail" Type="honeysaleModel.Store.ReturnDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CylinderMaster">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReturnDetail">
+        <PropertyRef Name="cylinder_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeliveryDetail_tbluser">
+    <End Role="tbluser" Type="honeysaleModel.Store.tbluser" Multiplicity="0..1" />
+    <End Role="DeliveryDetail" Type="honeysaleModel.Store.DeliveryDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbluser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DeliveryDetail">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoadCylinder">
+    <End Role="tbluser" Type="honeysaleModel.Store.tbluser" Multiplicity="1" />
+    <End Role="LoadCylinder" Type="honeysaleModel.Store.LoadCylinder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbluser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LoadCylinder">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_loadDetail">
+    <End Role="LoadCylinder" Type="honeysaleModel.Store.LoadCylinder" Multiplicity="0..1" />
+    <End Role="LoadDetail" Type="honeysaleModel.Store.LoadDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoadCylinder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LoadDetail">
+        <PropertyRef Name="load_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoadDetailCylinder">
+    <End Role="CylinderMaster" Type="honeysaleModel.Store.CylinderMaster" Multiplicity="0..1" />
+    <End Role="LoadDetail" Type="honeysaleModel.Store.LoadDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CylinderMaster">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LoadDetail">
+        <PropertyRef Name="cylinder_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PaymentCust_ID">
+    <End Role="CustomerDetail" Type="honeysaleModel.Store.CustomerDetail" Multiplicity="1" />
+    <End Role="CustomerPaymentDetails" Type="honeysaleModel.Store.CustomerPaymentDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerDetail">
+        <PropertyRef Name="cust_id" />
+      </Principal>
+      <Dependent Role="CustomerPaymentDetails">
+        <PropertyRef Name="cust_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase">
+    <End Role="PurchaseCylinder" Type="honeysaleModel.Store.PurchaseCylinder" Multiplicity="0..1" />
+    <End Role="PurchaseDetail" Type="honeysaleModel.Store.PurchaseDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PurchaseCylinder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PurchaseDetail">
+        <PropertyRef Name="purchase_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ReturnDetail">
+    <End Role="ReturnCylinder" Type="honeysaleModel.Store.ReturnCylinder" Multiplicity="0..1" />
+    <End Role="ReturnDetail" Type="honeysaleModel.Store.ReturnDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReturnCylinder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ReturnDetail">
+        <PropertyRef Name="return_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staff_ID">
+    <End Role="tbluser" Type="honeysaleModel.Store.tbluser" Multiplicity="0..1" />
+    <End Role="StaffPayment" Type="honeysaleModel.Store.StaffPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbluser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="StaffPayment">
+        <PropertyRef Name="Staff _ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UnloadDetailCylinder">
+    <End Role="CylinderMaster" Type="honeysaleModel.Store.CylinderMaster" Multiplicity="0..1" />
+    <End Role="UnloadDetail" Type="honeysaleModel.Store.UnloadDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CylinderMaster">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UnloadDetail">
+        <PropertyRef Name="cylinder_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Unloads">
+    <End Role="tbluser" Type="honeysaleModel.Store.tbluser" Multiplicity="1" />
+    <End Role="UnloadCylinder" Type="honeysaleModel.Store.UnloadCylinder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbluser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UnloadCylinder">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UnnloadDetial">
+    <End Role="UnloadCylinder" Type="honeysaleModel.Store.UnloadCylinder" Multiplicity="0..1" />
+    <End Role="UnloadDetail" Type="honeysaleModel.Store.UnloadDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnloadCylinder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UnloadDetail">
+        <PropertyRef Name="unload_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="sp_AddCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pFirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="pLastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="pEmail" Type="nvarchar" Mode="In" />
+    <Parameter Name="pMobileNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="pDiscount" Type="float" Mode="In" />
+    <Parameter Name="pAadhar" Type="nvarchar" Mode="In" />
+    <Parameter Name="pAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="responseMessage" Type="nvarchar" Mode="InOut" />
+    <Parameter Name="type" Type="bit" Mode="InOut" />
+    <Parameter Name="msg" Type="nvarchar" Mode="InOut" />
+  </Function>
+  <Function Name="userLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pUserName" Type="nvarchar" Mode="In" />
+    <Parameter Name="pPassword" Type="nvarchar" Mode="In" />
+    <Parameter Name="status" Type="bit" Mode="InOut" />
+    <Parameter Name="message" Type="nvarchar" Mode="InOut" />
+  </Function>
+  <Function Name="userLogin1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pUserName" Type="nvarchar" Mode="In" />
+    <Parameter Name="pPassword" Type="nvarchar" Mode="In" />
+    <Parameter Name="status" Type="bit" Mode="InOut" />
+    <Parameter Name="message" Type="nvarchar" Mode="InOut" />
+  </Function>
+</Schema>

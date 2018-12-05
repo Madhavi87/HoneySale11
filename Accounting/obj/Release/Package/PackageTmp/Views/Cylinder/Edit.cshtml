@@ -1,0 +1,110 @@
+﻿@model HoneySaleDAL.CylinderMaster
+@{
+    ViewBag.Title = "Edit Cylinder";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        if ($("#openingEmpty").val() == "")
+            $("#openingEmpty").val("0");
+        if ($("#openingFilled").val() == "")
+            $("#openingFilled").val("0");
+        if ($("#openingReplace").val() == "")
+            $("#openingReplace").val("0");
+    });
+
+</script>
+
+
+
+
+
+<section class="content-header">
+    <h1 class="headingfont">Cylinder Details</h1>
+
+</section>
+@if (ViewBag.SuccessMsg != null)
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.notify("@ViewBag.SuccessMsg", "success");
+
+        });
+    </script>
+}
+@if (ViewBag.ErrorMsg != null)
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.notify("@ViewBag.ErrorMsg", "error");
+        });
+    </script>
+}
+
+
+
+
+<section class="content">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <div id="alert" style="color: red; display: none; margin-left: 10px;">*Please fill mandatory fields</div>
+        <fieldset>
+
+            <div class="row no-margin">
+
+                <div class="col-md-3">
+                    @Html.HiddenFor(model => model.ID)
+                    <label class="required headinglabel">Cylinder Type</label>
+                    @Html.TextBoxFor(model => model.cylinderType, new { @class = "form-control txttarget" })
+                    @Html.ValidationMessageFor(model => model.cylinderType)
+
+                </div>
+                <div class="col-md-3">
+                    <label class="required headinglabel">Amount</label>
+                    @Html.TextBoxFor(model => model.amount, new { @class = "form-control txttarget" })
+                    @Html.ValidationMessageFor(model => model.amount)
+
+                </div>
+                <div class="col-md-3">
+                    <label class="headinglabel">Opening Filled</label>
+                    @Html.TextBoxFor(model => model.openingFilled, new { @class = "form-control" })
+
+                </div>
+
+            </div>
+            <div class="row no-margin">
+                <div class="col-md-3">
+                    <label class="headinglabel">Opening Empty</label>
+                    @Html.TextBoxFor(model => model.openingEmpty, new { @class = "form-control" })
+
+                </div>
+
+                <div class="col-md-3">
+                    <label class="headinglabel">Opening Replace</label>
+                    @Html.TextBoxFor(model => model.openingReplace, new { @class = "form-control" })
+
+
+                </div>
+            </div>
+
+            <div class="row no-margin" style="padding-top: 10px">
+                <div class="col-md-12">
+
+                    <input type="submit" value="Save" class="btn btn-primary btnwidth" id="btnsave" />
+
+                    &nbsp;
+                    <a href='@Url.Action("Listing", "Cylinder")' class="btn btn-primary btnwidth" data-toggle="tooltip" data-placement="right" title="Click here">Cancel</a>
+
+                </div>
+            </div>
+
+
+        </fieldset>
+    }
+</section>

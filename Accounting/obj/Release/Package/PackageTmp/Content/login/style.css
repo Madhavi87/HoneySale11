@@ -1,0 +1,154 @@
+
+/*font-family: 'Nunito', sans-serif;
+font-family: 'Roboto', sans-serif;
+*/
+body{font-family: 'Roboto', sans-serif; font-weight:400;font-size:15px; color:#474747;}
+a{text-decoration:none !important; outline:none !important;}
+.bg{ background:; height:;}
+.clearer{ clear:both;}
+
+
+
+.header{ padding:15px 0; background:#FFF;}
+.logo{ display:inline-block; float:left; width:284px; height:67px; background-size:contain; background:url(../img/logo.png) center top no-repeat; margin-top:8px;}
+.rightlogoarea{ display:inline-block; float:right;}
+.rightlogoarea p{ margin:0 0 3px 0; font-size:12px; font-weight:400; color:#3a4754;}
+.rightlogo{ display:block; width:215px; height:60px; background:url(../img/logo2.jpg) center top  no-repeat; background-size:contain;}
+.bgarea{ background: #30465d url(../img/bg.jpg) center -15px no-repeat; padding:60px 0 50px 0; /*background-size: 130%;*/}
+.bgarea h2{ font-weight:700; font-size:30px; text-transform:uppercase; color:#FFF; margin-top:0; color:#FFF;}
+
+
+
+.loginbox {
+	width:100%;
+	padding:40px;
+	background: #FFF;
+	margin:0 auto;
+}
+.loginbox h6 {
+	font-weight: 400;
+	color: #1c2937;
+	font-size: 20px;
+	margin: 0;
+	margin-bottom: 24px;
+}
+
+
+
+.login .loginbtn {
+	width: 100%;
+	text-align: center;
+	padding: 13px 0px;
+	height:48px;
+	background: #2472c5;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 15px;
+	color: #FFF;
+	border: none;
+	border-radius:4px;
+	-moz-transition-duration: 0.5s;
+	-o-transition-duration: 0.5s;
+	-webkit-transition-duration: 0.5s;
+	transition-duration: 0.5s;
+	cursor:pointer;
+	
+}
+.login .loginbtn:hover {
+	background: #1257a0;
+}
+
+.login .form-control {
+	height: 48px;
+	width:100%;
+	display:block;
+	border-radius:4px !important;
+	padding: 12px 12px;
+	font-size: 14px;
+	color: #2f4357;
+	background-color: #FFFFFF;
+	border: medium none;
+	padding-left:38px;
+	margin-bottom:0;
+	border: 1px solid #abbac9 !important;
+	
+}
+.login .form-control::-webkit-input-placeholder {
+  color: #2f4357;
+}
+
+.login .form-control.login,.login .form-control.pwd,.login .form-control.branch,.login .form-control.year{ background:url(../img/sprite.png) no-repeat;}
+
+.login .form-control.login{ background-position: left 2px;}
+.login .form-control.pwd{background-position: left -35px;}
+.login .form-control.branch{background-position: left -72px;}
+.login .form-control.year{background-position: left -110px;}
+
+.login .input-group {
+margin-bottom: 18px;
+	width:100%;
+}
+
+.login .form-control select{ color:#936;}
+
+.bottommarea{ text-align:center; padding-top:65px; }
+.bottommarea h4{font-family: 'Nunito', sans-serif; font-size:32px; font-weight:400; color:#FFF;}
+.bottommarea p{ font-size:14px; font-weight:400; color:#c9d7e6; line-height:24px; padding:0 10%; margin:0;}
+
+
+.footer{ width:100%; padding:20px 0; text-align:center; background:#080f18; font-size:14px; color:#b9c7da;}
+
+.imgbox{ display:none;}
+
+@media screen and (max-width: 1200px){
+.bgarea h2{ font-size:24px;}
+
+	}
+@media screen and (max-width: 992px){
+.bottommarea p{ padding:0;}
+.bgarea h2{ width:100%; text-align:center; margin-bottom:20px;}
+.bgarea{ background:#30465d; padding-top:0;}
+.bottommarea{ padding-top:40px;}
+.imgbox{ display:block;}
+	}
+@media screen and (max-width: 768px){
+	
+
+	}
+	
+@media screen and (max-width: 620px){	
+.bgarea h2{ font-size:20px; line-height:25px; margin-bottom:10px;}
+.bottommarea h4{ font-size:25px;}
+.bottommarea {
+    padding-top: 20px;
+}
+.bottommarea p{ line-height:22px;}
+.bgarea{ padding-bottom:35px;}
+.loginbox{ padding:30px 20px;}
+.login .form-control{ height:46px;}
+.login .input-group{ margin-bottom:10px;}
+.loginbox h6{ font-size:17px; margin-bottom:14px;}
+
+.logo{ background-size:contain; width:180px; height:45px;}
+.rightlogo{ width:150px; height:42px; display:inline-block;}
+}
+	
+	
+@media screen and (max-width: 480px){
+
+.header{ text-align:center;}
+.logo,.rightlogoarea{float:none; width:100%;}
+.rightlogoarea{ margin-top:15px;}
+.imgbox{ display:none;}
+.bgarea{ padding-top:35px;}
+
+}
+
+@media screen and (max-width: 380px){
+.bgarea h2{ font-size:18px; line-height:24px; margin-bottom:10px;}
+
+}
+
+
+
+
